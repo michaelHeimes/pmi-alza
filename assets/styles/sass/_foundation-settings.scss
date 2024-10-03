@@ -66,10 +66,10 @@
 // ---------
 
 $global-font-size: 100%;
-$global-width: rem-calc(1200);
+$global-width: rem-calc(1580);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  "primary": #1779ba,
+  "primary": #1B9E8F,
   "secondary": #767676,
   "success": #3adb76,
   "warning": #ffae00,
@@ -78,11 +78,11 @@ $foundation-palette: (
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
-$black: #0a0a0a;
-$white: #fefefe;
-$body-background: $white;
-$body-font-color: $black;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$black: #161A1C;
+$white: #fff;
+$body-background: $black;
+$body-font-color: $white;
+$body-font-family: $font-body;
 $body-safe-padding: false;
 $body-antialiased: true;
 $global-margin: 1rem;
@@ -123,7 +123,7 @@ $breakpoints-hidpi: (
   "hidpi-3": 3
 );
 $print-breakpoint: large;
-$breakpoint-classes: (small medium tablet large);
+$breakpoint-classes: (small medium tablet large xlarge);
 
 // 3. The Grid
 // -----------
@@ -131,7 +131,7 @@ $breakpoint-classes: (small medium tablet large);
 $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-gutter: (
-  small: 20px,
+  small: 30px,
   medium: 30px,
 );
 $grid-column-align-edge: true;
@@ -141,7 +141,7 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: $body-font-family;
+$header-font-family: $font-header;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
@@ -150,16 +150,16 @@ $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
   small: (
-    'h1': ('font-size': 24),
-    'h2': ('font-size': 20),
+    'h1': ('font-size': 42),
+    'h2': ('font-size': 32.2),
     'h3': ('font-size': 19),
     'h4': ('font-size': 18),
     'h5': ('font-size': 17),
     'h6': ('font-size': 16),
   ),
   medium: (
-    'h1': ('font-size': 48),
-    'h2': ('font-size': 40),
+    'h1': ('font-size': 60),
+    'h2': ('font-size': 46),
     'h3': ('font-size': 31),
     'h4': ('font-size': 25),
     'h5': ('font-size': 20),
@@ -296,21 +296,21 @@ $breadcrumbs-item-separator-color: $medium-gray;
 // ----------
 
 $button-font-family: inherit;
-$button-font-weight: null;
-$button-padding: 0.85em 1em;
-$button-margin: 0 0 $global-margin 0;
+$button-font-weight: 700;
+$button-padding: 0.844em 2.216em;
+$button-margin: 0 0 0 0;
 $button-fill: solid;
 $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $white;
-$button-color-alt: $black;
-$button-radius: $global-radius;
-$button-border: 1px solid transparent;
+$button-color-alt: $color-mint;
+$button-radius: 4px;
+$button-border: 2px solid $primary-color;
 $button-hollow-border-width: 1px;
 $button-sizes: (
   tiny: 0.6rem,
   small: 0.75rem,
-  default: 0.9rem,
+  default: 1rem,
   large: 1.25rem,
 );
 $button-palette: $foundation-palette;
@@ -874,7 +874,7 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0.5rem;
-$topbar-background: $light-gray;
+$topbar-background: transparent;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
 $topbar-input-width: 200px;
@@ -887,7 +887,7 @@ $xy-grid: true;
 $grid-container: $global-width;
 $grid-columns: 12;
 $grid-margin-gutters: (
-  "small": 20px,
+  "small": 30px,
   "medium": 30px
 );
 $grid-padding-gutters: $grid-margin-gutters;

@@ -1,3 +1,47 @@
-.page-template-page-home {
-	
+.page-template-custom-page-home {
+	.page-banner {
+		position: relative;
+		overflow: hidden;
+		min-height: 100vh;
+		max-height: 790px;
+		opacity: 0;
+		overflow: hidden;
+		transition: opacity .2s ease .1s;
+		&.loaded {
+			opacity: 1;
+		}
+		.swiper-wrapper {
+			height: auto;
+			.swiper-slide {
+				.grid-container {
+					height: 100%;
+					.grid-x {
+						height: 100%;
+					}
+				}	
+			}
+		}
+		.bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.img-wrap,
+		.video-wrap {
+			img,
+			video {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;	
+			}
+		}
+		.content {
+			z-index: 2;
+		}
+	}
 }

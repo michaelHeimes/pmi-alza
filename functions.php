@@ -169,29 +169,8 @@ function trailhead_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'trailhead_scripts' );
 
-
-/**
- * Enqueue Google Fonts.
- */
-wp_enqueue_style( 'dmc-', 'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600&family=Francois+One&display=swap', array(), _S_VERSION, );
- 
- function google_font_loader_tag_filter( $html, $handle ) {
-	 if ( $handle === 'dmc-' ) {
-		 $rel_preconnect = "rel='stylesheet preconnect'";
- 
-		 return str_replace(
-			 "rel='stylesheet'",
-			 $rel_preconnect,
-			 $html
-		 );
-	 }
-	 return $html;
- }
- add_filter( 'style_loader_tag', 'google_font_loader_tag_filter', 10, 2 );
-
-
 // Disable Tabelpress Stylesheet
-add_filter( 'tablepress_use_default_css', '__return_false' );
+// add_filter( 'tablepress_use_default_css', '__return_false' );
 
 
 /**
@@ -250,7 +229,7 @@ require_once(get_template_directory().'/inc/acf-options.php');
 //require_once(get_template_directory().'/inc/acf-blocks.php');
 
 // Disable Gutenberg
-require_once(get_template_directory().'/inc/disable-gutenberg.php'); 
+// require_once(get_template_directory().'/inc/disable-gutenberg.php'); 
 
 // Add Page Slug to Body Class
 // require_once(get_template_directory().'/inc/page-slug-body-class.php');

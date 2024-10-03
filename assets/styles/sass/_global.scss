@@ -27,8 +27,61 @@ svg {
 	}
 }
 
+.has-object-fit {
+	img.object-fit-img {
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.height-100 {
+	height: 100%;	
+}
+
 .relative {
 	position: relative;
+}
+
+button,
+.button {
+	display: inline-flex;
+	align-items: center;
+	&.has-icon {
+		padding: 0.65em 2.216em;
+	}
+	svg {
+		margin-right: rem-calc(9);
+		path {
+			transition: .25s ease;
+		}
+	}
+	&:hover {
+		background-color: transparent;
+	}
+	&.border,
+	&.no-bg {
+		background-color: transparent;
+		color: $color-mint;
+		&:hover {
+			background-color: $color-mint;
+			color: $white;
+		}
+	}
+	&.no-bg {
+		border-color: transparent;
+		&:hover {
+			background-color: transparent;
+			color: $white;
+			svg path {
+				fill: $white;
+			}
+		}
+	}
 }
 
 /*********************

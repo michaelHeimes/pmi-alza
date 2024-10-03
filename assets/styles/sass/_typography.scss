@@ -1,0 +1,29 @@
+h1,
+.h1 {
+	line-height: 1.333;
+	font-size: 2.625rem;
+	font-size: clamp(2.625rem, 2.339rem + 1.429vw, 3.75rem);
+	@include breakpoint(medium) {
+		font-size: 3.75rem;
+		font-size: clamp(2.625rem, 2.339rem + 1.429vw, 3.75rem);	
+	}
+}
+h2,
+.h2 {
+	line-height: 1.195;
+	font-size: 2.013rem;
+	font-size: clamp(2.013rem, 1.793rem + 1.095vw, 2.875rem);
+	@include breakpoint(medium) {
+		font-size: 2.875rem;
+		font-size: clamp(2.013rem, 1.793rem + 1.095vw, 2.875rem);
+	}
+}
+p,
+.p {
+	font-size: 1rem;
+	font-size: clamp(1rem, 0.968rem + 0.159vw, 1.125rem);
+	@include breakpoint(medium) {
+		font-size: 1.125rem;
+		font-size: clamp(1rem, 0.968rem + 0.159vw, 1.125rem);
+	}
+}

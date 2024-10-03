@@ -142,6 +142,93 @@
             
         });
     }
+    
+    _app.banner_slider = function() {
+        const bannerSlider = document.querySelector('.page-banner.hero-slider');
+        if(bannerSlider) {
+            const delay = bannerSlider.getAttribute('data-delay');
+            console.log(delay);
+            function pauseAndRestartAllVideos() {
+              var allVideos = document.querySelectorAll('.swiper-slide video');
+              allVideos.forEach(function (video) {
+                video.pause();
+                video.currentTime = 0;
+              });
+            }
+            
+            function playVideoInActiveSlide() {
+              var activeSlide = document.querySelector('.swiper-slide-active video');
+              if (activeSlide) {
+                // Show loading animation.
+                const playPromise = activeSlide.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                      // Automatic playback started!
+                      // Show playing UI.
+                    })
+                    .catch(error => {
+                      // Auto-play was prevented
+                      // Show paused UI.
+                    });
+                }
+              }
+            }
+            
+            const swiper = new Swiper('.page-banner.hero-slider', {
+                loop: true,
+                slidesPerView: 1,
+                speed: 500,
+                spaceBetween: 0,
+                effect: "fade",
+                autoplay: {
+                  delay: delay + '000',
+                  disableOnInteraction: false,
+                },
+                on: {
+                    init: function () {
+                      // Play the video in the first slide on initialization
+                      playVideoInActiveSlide();
+                    },
+                
+                    // Listen for the transitionStart event
+                    transitionStart: function () {
+                      // Pause and restart all videos in slides
+                      pauseAndRestartAllVideos();
+                
+                      // Play the video in the active slide
+                      playVideoInActiveSlide();
+                    }
+                  }
+            });
+    
+        }
+        
+        const heroBanner = document.querySelector('.page-banner.hero-slider');
+        if(heroBanner) {
+            const setHeroBannerMinHeight = function() {
+                const headerHeight = document.querySelector('.site-header').offsetHeight;
+                const windowHeight = window.innerHeight;
+                
+                // Calculate the min-height by subtracting headerHeight from windowHeight
+                let minHeight = windowHeight - headerHeight;
+        
+                // Ensure the minHeight does not exceed 790px
+                if (minHeight > 790) {
+                    minHeight = 790;
+                }
+        
+                // Set the min-height of .style-hero-slider
+                heroBanner.style.minHeight = minHeight + 'px';
+            }
+            setHeroBannerMinHeight();
+            heroBanner.classList.add('loaded');
+            window.addEventListener('resize', function() {
+                setHeroBannerMinHeight();
+            });
+        }
+        
+    }
             
     _app.init = function() {
         
@@ -153,6 +240,7 @@
         
         // Custom Functions
         //_app.mobile_takover_nav();
+        _app.banner_slider();
     }
     
     

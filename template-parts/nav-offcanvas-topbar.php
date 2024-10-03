@@ -4,13 +4,16 @@
  *
  * For more info: https://jointswp.com/docs/off-canvas-menu/
  */
+ $global_phone_number = get_field('global_phone_number', 'option') ?? null;
+ $global_quote_link = get_field('global_quote_link', 'option') ?? null;
+
 ?>
 
 <div class="top-bar-wrap grid-container fluid">
 
-	<div class="top-bar" id="top-bar-menu">
+	<div class="top-bar grid-x grid-padding-x" id="top-bar-menu">
 	
-		<div class="top-bar-left float-left">
+		<div class="top-bar-left float-left cell shrink">
 			
 			<div class="site-branding show-for-sr">
 				<?php
@@ -41,19 +44,25 @@
 			</ul>
 						
 		</div>
-		<div class="top-bar-right show-for-tablet">
-			<div class="grid-x align-right">
-				<div class="cell shrink">
-					<?php trailhead_top_nav();?>
+
+		<?php if( !empty( $global_phone_number ) || !empty( $global_quote_link ) ) :?>
+			<div class="top-bar-right cell auto">
+				<div class="grid-x grid-padding-x align-right">
+					<?php get_template_part('template-parts/part', 'global-cta-links',
+						array(
+							'global_phone_number' => $global_phone_number,
+							'global_quote_link' => $global_quote_link,	
+						),
+					);?>
 				</div>
 			</div>
-		</div>
-		<div class="menu-toggle-wrap top-bar-right float-right hide-for-tablet">
+		<?php endif ;?>
+
+		<!-- <div class="menu-toggle-wrap top-bar-right float-right hide-for-tablet">
 			<ul class="menu">
-				<!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
 				<li><a id="menu-toggle" data-toggle="off-canvas"><span></span><span></span><span></span></a></li>
 			</ul>
-		</div>
+		</div> -->
 	</div>
 	
 </div>
