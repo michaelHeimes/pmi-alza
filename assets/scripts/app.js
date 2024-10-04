@@ -147,7 +147,6 @@
         const bannerSlider = document.querySelector('.page-banner.hero-slider');
         if(bannerSlider) {
             const delay = bannerSlider.getAttribute('data-delay');
-            console.log(delay);
             function pauseAndRestartAllVideos() {
               var allVideos = document.querySelectorAll('.swiper-slide video');
               allVideos.forEach(function (video) {
@@ -229,6 +228,90 @@
         }
         
     }
+    
+    _app.group_slider = function() {
+        const groupSwiperSlides = document.querySelectorAll('.group-slider-swiper .swiper-slide.company-slide');
+        if (groupSwiperSlides.length > 1) {
+            let groupSwiper = new Swiper('.group-slider-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 1,
+                allowTouchMove: false,
+                clickable: false,
+                effect: "creative",
+                creativeEffect: {
+                    prev: {
+                        shadow: false,
+                        translate: [0, 0, -400],
+                        opacity: 0,
+                    },
+                    next: {
+                        translate: ["100%", 0, 0],
+                    },
+                },
+                // Pagination
+                pagination: {
+                    el: '.swiper-pagination.company-pagination',
+                    clickable: true,
+                    renderBullet: function (index, className) {
+                        const slides = document.querySelectorAll('.group-slider-swiper .swiper-slide.company-slide');
+                        if (slides[index]) {
+                            const companyName = slides[index].getAttribute('data-company');
+                            const companyColor = slides[index].getAttribute('data-color');
+                            return '<span class="' + className + '" style="color:' + companyColor +'"><span class="spacer">' + companyName + '</span><span class="active" style="background-color:' + companyColor +'"></span></span>';
+                        }
+                        // Fallback for missing slide or data-company attribute
+                        return '<span class="' + className + '">Unknown</span>';
+                    },
+                },
+            });
+            
+            const companyImageSlides = document.querySelectorAll('.company-images-swiper .swiper-slide');
+            if (companyImageSlides.length > 1) {
+                
+                const companyImageSwiper = new Swiper(".company-images-swiper", {
+                    slidesPerView: 1,
+                    spaceBetween: 1,
+                    grabCursor: true,
+                    loop: true,
+                    autoplay: {
+                        delay: 5000,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination.company-images-pagination',
+                        clickable: true
+                    },
+                
+                });
+                
+                document.querySelectorAll('.company-images-swiper').forEach(function (element, index) {
+                    const swiper = element.swiper;
+                    const ppsParent = element.closest('.company-slide'); 
+                    swiper.update();
+                    swiper.autoplay.stop();
+                
+                    const playPPSwiper = function() {
+                        const activeSlideIndex = groupSwiper.realIndex;
+                        const activeSlide = groupSwiper.slides[activeSlideIndex];
+                
+                        if (ppsParent === activeSlide) {
+                            swiper.autoplay.start();
+                        } else {
+                            swiper.autoplay.stop();
+                        }
+                    }
+                
+                    playPPSwiper();
+                
+                    // Listen for Swiper events
+                    groupSwiper.on('afterInit slideChange', function () {
+                        playPPSwiper();
+                    });
+                });
+            }
+
+
+        }
+    }
             
     _app.init = function() {
         
@@ -241,6 +324,7 @@
         // Custom Functions
         //_app.mobile_takover_nav();
         _app.banner_slider();
+        _app.group_slider();
     }
     
     

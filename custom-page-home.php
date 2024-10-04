@@ -16,11 +16,14 @@ $intro_copy = $fields['intro_copy_copy'] ?? null;
 $global_phone_number = get_field('global_phone_number', 'option') ?? null;
 $global_quote_link = get_field('global_quote_link', 'option') ?? null;
 
-//Difference
-$agd_background_image = get_field('agd_background_image') ?? null;
-$agd_title = get_field('agd_title') ?? null;
-$agd_icon_text_rows = get_field('agd_icon_text_rows') ?? null;
+// Difference
+$agd_background_image = $fields['agd_background_image'] ?? null;
+$agd_title = $fields['agd_title'] ?? null;
+$agd_icon_text_rows = $fields['agd_icon_text_rows'] ?? null;
 
+// Group Slider
+$group_slider_logo = $fields['group_slider_logo'] ?? null;
+$group_companies_slides = $fields['group_companies_slides'] ?? null;
 ?>
 	<div class="content">
 		<div class="inner-content">
@@ -63,6 +66,7 @@ $agd_icon_text_rows = get_field('agd_icon_text_rows') ?? null;
 								</div>
 							</div>
 						</section>
+						
 						<?php endif;?>
 						<?php if( !empty( $agd_background_image ) || !empty( $agd_title )  || !empty( $agd_icon_text_rows ) ):?>
 						<section class="difference relative has-object-fit">
@@ -103,6 +107,86 @@ $agd_icon_text_rows = get_field('agd_icon_text_rows') ?? null;
 							</div>
 						</section>
 						<?php endif;?>
+						
+						<?php if( !empty( $group_slider_logo ) || !empty( $group_companies_slides ) ):?>
+						<section class="group-slider">
+							<div class="grid-container">
+								<div class="grid-x grid-padding-x align-center">
+									<div class="cell small-12 large-10 xlarge-8">
+										<?php if( !empty( $group_companies_slides  ) ):?>
+										<div class="group-slider-swiper overflow-hidden">
+											<div class="grid-x align-center">
+												<div class="swiper-pagination company-pagination"></div>
+											</div>
+											<div class="swiper-wrapper">
+												<?php foreach( $group_companies_slides as $slide ):
+													$brand_color = $slide['brand_color'] ?? null;
+													$name = $slide['company_name'] ?? null;
+													$logo = $slide['logo'] ?? null;	
+													$description = $slide['description'] ?? null;	
+													$button_link = $slide['button_link'] ?? null;	
+													$slider_images = $slide['slider_images'] ?? null;	
+												?>
+													<div class="swiper-slide company-slide" data-company="<?=esc_html( $name );?>" data-color="<?=esc_html( $brand_color );?>">
+														<div class="grid-x grid-padding-x">
+															<?php if( !empty( $logo ) || !empty( $description ) || !empty( $button_link ) ):?>
+																<div class="left cell small-12 medium-3">
+																	<div class="inner">
+																		<?php 
+																		$image = $logo['id'] ?? null;
+																		$size = 'full';
+																		if( $image ) {
+																			echo wp_get_attachment_image( $image, $size );
+																		}?>
+																		<?php if( !empty( $description ) ):?>
+																			<p><?=esc_html( $description );?></p>
+																		<?php endif;?>
+																		<?php 
+																		$link = $button_link ?? null;;
+																		if( $link ): 
+																			$link_url = $link['url'];
+																			$link_title = $link['title'];
+																			$link_target = $link['target'] ? $link['target'] : '_self';
+																			?>
+																			<div class="btn-wrap">
+																				<a class="button border" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+																			</div>
+																		<?php endif; ?>
+																	</div>
+																</div>
+																<?php if( !empty( $slider_images ) ):?>
+																	<div class="company-images right cell small-12 medium-9">
+																		<div class="overflow-hidden">
+																			<div class="company-images-swiper">
+																				<div class="swiper-wrapper">
+																					<?php foreach($slider_images as $image):?>
+																						<div class="swiper-slide">
+																							<?php 
+																							$size = 'full';
+																							if( $image ) {
+																								echo wp_get_attachment_image( $image['id'], $size );
+																							}?>
+																						</div>
+																					<?php endforeach;?>
+																				</div>
+																				<div class="swiper-pagination company-images-pagination"></div>
+																			</div>
+																		</div>
+																	</div>
+																<?php endif;?>
+															<?php endif;?>
+														</div>
+													</div>
+												<?php endforeach;?>
+											</div>
+										</div>
+										<?php endif;?>
+									</div>
+								</div>
+							</div>
+						</section>
+						<?php endif;?>
+						
 					</section> <!-- end article section -->
 							
 					<footer class="article-footer">
