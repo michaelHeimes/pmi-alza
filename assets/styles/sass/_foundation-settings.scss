@@ -298,7 +298,7 @@ $breadcrumbs-item-separator-color: $medium-gray;
 $button-font-family: inherit;
 $button-font-weight: 700;
 $button-padding: 0.844em 2.216em;
-$button-margin: 0 0 0 0;
+$button-margin: 0 0 1.5rem 0;
 $button-fill: solid;
 $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);

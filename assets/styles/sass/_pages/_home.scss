@@ -12,6 +12,7 @@
 		}
 		.swiper-wrapper {
 			height: auto;
+			box-sizing: border-box;
 			.swiper-slide {
 				.grid-container {
 					height: 100%;
@@ -42,6 +43,9 @@
 		}
 		.content {
 			z-index: 2;
+			h1 {
+				margin: 1em 0;
+			}
 		}
 	}
 }

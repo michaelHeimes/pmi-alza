@@ -25,7 +25,7 @@ $global_quote_link = $args['global_quote_link'] ?? null;
 		$link_title = $link2['title'];
 		$link_target = $link2['target'] ? $link2['target'] : '_self';
 	?>
-	<div class="cell shrink">
+	<div class="cell small-12 medium-shrink">
 		<a class="button border" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 	</div>
 <?php endif; ?>

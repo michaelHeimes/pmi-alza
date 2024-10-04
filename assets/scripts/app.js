@@ -181,10 +181,10 @@
                 speed: 500,
                 spaceBetween: 0,
                 effect: "fade",
-                autoplay: {
-                  delay: delay + '000',
-                  disableOnInteraction: false,
-                },
+                // autoplay: {
+                //   delay: delay + '000',
+                //   disableOnInteraction: false,
+                // },
                 on: {
                     init: function () {
                       // Play the video in the first slide on initialization

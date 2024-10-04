@@ -28,7 +28,7 @@ svg {
 }
 
 .has-object-fit {
-	img.object-fit-img {
+	> img {
 		position: absolute;
 		z-index: 0;
 		top: 0;

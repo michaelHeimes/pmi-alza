@@ -4728,7 +4728,7 @@ ul.no-bullet, ol.no-bullet {
 .button {
   display: inline-block;
   vertical-align: middle;
-  margin: 0 0 0 0;
+  margin: 0 0 1.5rem 0;
   padding: 0.844em 2.216em;
   border: 2px solid #1B9E8F;
   border-radius: 4px;
@@ -7690,7 +7690,7 @@ svg {
   background-repeat: no-repeat;
 }
 
-.has-object-fit img.object-fit-img {
+.has-object-fit > img {
   position: absolute;
   z-index: 0;
   top: 0;
@@ -7822,7 +7822,7 @@ POSTS & CONTENT STYLES
 .post-password-form input[type=submit] {
   display: inline-block;
   vertical-align: middle;
-  margin: 0 0 0 0;
+  margin: 0 0 1.5rem 0;
   padding: 0.844em 2.216em;
   border: 2px solid #1B9E8F;
   border-radius: 4px;
@@ -8314,6 +8314,9 @@ header.site-header #top-bar-menu #main-nav > li > a span:before {
 header.site-header #top-bar-menu #main-nav > li.is-active span:before, header.site-header #top-bar-menu #main-nav > li.current-menu-ancestor span:before {
   background-color: #fff;
 }
+header.site-header #top-bar-menu .button {
+  margin-bottom: 0;
+}
 header.site-header #top-bar-menu .menu-toggle-wrap {
   width: auto;
   -webkit-box-flex: 0;
@@ -8407,6 +8410,8 @@ footer#colophon .copyright {
 }
 .page-template-custom-page-home .page-banner .swiper-wrapper {
   height: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .page-template-custom-page-home .page-banner .swiper-wrapper .swiper-slide .grid-container {
   height: 100%;
@@ -8435,5 +8440,8 @@ footer#colophon .copyright {
 }
 .page-template-custom-page-home .page-banner .content {
   z-index: 2;
+}
+.page-template-custom-page-home .page-banner .content h1 {
+  margin: 1em 0;
 }
 /*# sourceMappingURL=style.min.css.map */

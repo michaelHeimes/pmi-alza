@@ -46,7 +46,7 @@
 		</div>
 
 		<?php if( !empty( $global_phone_number ) || !empty( $global_quote_link ) ) :?>
-			<div class="top-bar-right cell auto">
+			<div class="top-bar-right cell auto show-for-medium">
 				<div class="grid-x grid-padding-x align-right">
 					<?php get_template_part('template-parts/part', 'global-cta-links',
 						array(
