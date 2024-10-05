@@ -22,6 +22,7 @@ $agd_title = $fields['agd_title'] ?? null;
 $agd_icon_text_rows = $fields['agd_icon_text_rows'] ?? null;
 
 // Group Slider
+$group_background_image = $fields['group_background_image'] ?? null;
 $group_slider_logo = $fields['group_slider_logo'] ?? null;
 $group_companies_slides = $fields['group_companies_slides'] ?? null;
 ?>
@@ -65,6 +66,7 @@ $group_companies_slides = $fields['group_companies_slides'] ?? null;
 									<?php endif ;?>
 								</div>
 							</div>
+							<hr class="gradient">
 						</section>
 						
 						<?php endif;?>
@@ -105,18 +107,33 @@ $group_companies_slides = $fields['group_companies_slides'] ?? null;
 									</div>
 								</div>
 							</div>
+							<hr class="gradient relative">
 						</section>
 						<?php endif;?>
 						
 						<?php if( !empty( $group_slider_logo ) || !empty( $group_companies_slides ) ):?>
-						<section class="group-slider">
+						<section class="group-slider has-object-fit">
+							<?php 
+							$image = $group_background_image['id'] ?? null;
+							$size = 'full';
+							if( $image ) {
+								echo wp_get_attachment_image( $image, $size );
+							}?>
 							<div class="grid-container">
 								<div class="grid-x grid-padding-x align-center">
 									<div class="cell small-12 large-10 xlarge-8">
+										<?php 
+										$image = $group_slider_logo['id'] ?? null;
+										$size = 'full';
+										if( $image ) :?>
+											<div class="logo-wrap text-center">
+												<?=wp_get_attachment_image( $image, $size );?>
+											</div>
+										<?php endif; ?>
 										<?php if( !empty( $group_companies_slides  ) ):?>
 										<div class="group-slider-swiper overflow-hidden">
 											<div class="grid-x align-center">
-												<div class="swiper-pagination company-pagination"></div>
+												<div class="swiper-pagination company-pagination grid-x"></div>
 											</div>
 											<div class="swiper-wrapper">
 												<?php foreach( $group_companies_slides as $slide ):
@@ -130,17 +147,19 @@ $group_companies_slides = $fields['group_companies_slides'] ?? null;
 													<div class="swiper-slide company-slide" data-company="<?=esc_html( $name );?>" data-color="<?=esc_html( $brand_color );?>">
 														<div class="grid-x grid-padding-x">
 															<?php if( !empty( $logo ) || !empty( $description ) || !empty( $button_link ) ):?>
-																<div class="left cell small-12 medium-3">
-																	<div class="inner">
-																		<?php 
-																		$image = $logo['id'] ?? null;
-																		$size = 'full';
-																		if( $image ) {
-																			echo wp_get_attachment_image( $image, $size );
-																		}?>
-																		<?php if( !empty( $description ) ):?>
-																			<p><?=esc_html( $description );?></p>
-																		<?php endif;?>
+																<div class="left cell small-12 medium-4">
+																	<div class="inner height-100 grid-x flex-dir-column align-justify">
+																		<div>
+																			<?php 
+																			$image = $logo['id'] ?? null;
+																			$size = 'full';
+																			if( $image ) {
+																				echo wp_get_attachment_image( $image, $size );
+																			}?>
+																			<?php if( !empty( $description ) ):?>
+																				<p><?=esc_html( $description );?></p>
+																			<?php endif;?>
+																		</div>
 																		<?php 
 																		$link = $button_link ?? null;;
 																		if( $link ): 
@@ -148,14 +167,14 @@ $group_companies_slides = $fields['group_companies_slides'] ?? null;
 																			$link_title = $link['title'];
 																			$link_target = $link['target'] ? $link['target'] : '_self';
 																			?>
-																			<div class="btn-wrap">
+																			<div class="btn-wrap text-center">
 																				<a class="button border" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 																			</div>
 																		<?php endif; ?>
 																	</div>
 																</div>
 																<?php if( !empty( $slider_images ) ):?>
-																	<div class="company-images right cell small-12 medium-9">
+																	<div class="company-images right cell small-12 medium-8">
 																		<div class="overflow-hidden">
 																			<div class="company-images-swiper">
 																				<div class="swiper-wrapper">
@@ -184,13 +203,14 @@ $group_companies_slides = $fields['group_companies_slides'] ?? null;
 									</div>
 								</div>
 							</div>
+							<hr class="gradient relative">
 						</section>
 						<?php endif;?>
 						
 					</section> <!-- end article section -->
 							
 					<footer class="article-footer">
-						 <?php wp_link_pages(); ?>
+						<?php get_template_part('template-parts/section', 'footer-cta');?>
 					</footer> <!-- end article footer -->
 						
 				</article><!-- #post-<?php the_ID(); ?> -->

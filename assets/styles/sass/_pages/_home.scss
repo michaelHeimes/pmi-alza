@@ -48,50 +48,159 @@
 			}
 		}
 	}
-	.group-slider {
-		.swiper-pagination {
-			position: relative;
-			&:after {
-				content: '';
-				display: block;
-				height: 4px;
-				width: 100%;
-				background-color: #414141;
-				transform: translateY(-4px);
+	.intro-copy {
+		padding-top: 4.944rem;
+		padding-top: clamp(4.944rem, 4.406rem + 2.69vw, 7.063rem);
+		@include breakpoint(medium) {
+			padding-top: 7.063rem;
+			padding-top: clamp(4.944rem, 4.406rem + 2.69vw, 7.063rem);
+		}
+		hr {
+			margin-top: 6.213rem;
+			margin-top: clamp(6.213rem, 5.536rem + 3.381vw, 8.875rem);
+			@include breakpoint(medium) {
+				margin-top: 8.875rem;
+				margin-top: clamp(6.213rem, 5.536rem + 3.381vw, 8.875rem);
 			}
-			&.company-pagination {
-				width: auto;
-				bottom: 0;
-				.swiper-pagination-bullet {
-					height: auto;
+		}
+		h1 {
+			margin-bottom: 0.72em;
+		}
+		.btns-wrap {
+			padding-top: 1.4rem;
+			padding-top: clamp(1.4rem, 1.248rem + 0.762vw, 2rem);
+			@include breakpoint(medium) {
+				padding-top: 2rem;
+				padding-top: clamp(1.4rem, 1.248rem + 0.762vw, 2rem);
+			}
+		}
+	}
+	.difference {
+		padding-top: 5.338rem;
+		padding-top: clamp(5.338rem, 4.757rem + 2.905vw, 7.625rem);
+		@include breakpoint(medium) {
+			padding-top: 7.625rem;
+			padding-top: clamp(5.338rem, 4.757rem + 2.905vw, 7.625rem);
+		}
+		h2 {
+			margin-bottom: 2em;
+		}
+		hr {
+			margin-top: 6.869rem;
+			margin-top: clamp(6.869rem, 6.121rem + 3.738vw, 9.813rem);
+			@include breakpoint(medium) {
+				margin-top: 9.813rem;
+				margin-top: clamp(6.869rem, 6.121rem + 3.738vw, 9.813rem);
+			}
+		}
+	}
+	.group-slider {
+		padding-top: 3.938rem;
+		padding-top: clamp(3.938rem, 3.509rem + 2.143vw, 5.625rem);
+		@include breakpoint(medium) {
+			padding-top: 5.625rem;
+			padding-top: clamp(3.938rem, 3.509rem + 2.143vw, 5.625rem);
+		}
+		.logo-wrap {
+			margin-bottom: 2.975rem;
+			margin-bottom: clamp(2.975rem, 2.651rem + 1.619vw, 4.25rem);
+			@include breakpoint(medium) {
+				margin-bottom: 4.25rem;
+				margin-bottom: clamp(2.975rem, 2.651rem + 1.619vw, 4.25rem);
+			}
+		}
+		.group-slider-swiper {
+			> .grid-x {
+				width: 90%;
+				max-width: 670px;
+				margin: auto;
+			}
+			.swiper-pagination {
+				position: relative;
+				&.company-pagination {
 					width: auto;
-					opacity: 1;
-					border-radius: 0;
-					background: transparent;
-					font-family: $font-header;
-					font-size: rem-calc(28);
-					line-height: 1.142;
-					padding: 0 38px;
-					&:not(:first-child):not(:last-child) span.spacer {
-						margin: 0 5% !important;
+					bottom: 0;
+					flex: 0 0 100%;
+					margin-bottom: 3.85rem;
+					margin-bottom: clamp(3.85rem, 3.431rem + 2.095vw, 5.5rem);
+					@include breakpoint(medium) {
+						margin-bottom: 5.5rem;
+						margin-bottom: clamp(3.85rem, 3.431rem + 2.095vw, 5.5rem);
 					}
-					span.active {
-						position: relative;
-						z-index: 1;
+					&:after {
+						content: '';
 						display: block;
 						height: 4px;
-						width: calc(100% + 79px);
-						transform: translateX(-38px);
+						width: 100%;
+						background-color: #414141;
+						transform: translateY(-4px);
+					}
+					.swiper-pagination-bullet {
+						height: auto;
+						width: auto;
+						opacity: 1;
+						border-radius: 0;
+						background: transparent;
+						font-family: $font-header;
+						font-size: 1.75rem;
+						line-height: 1.142;
+						padding: 0 0 5px;
+						margin: 0 !important;
+						flex: 1;
+						&:not(:first-child):not(:last-child){
+							flex: 1;
+							margin: 0 10% !important;
+						}
+						span.active {
+							position: relative;
+							bottom: -5px;
+							z-index: 1;
+							display: block;
+							height: 4px;
+							width: 0%;
+							transition: width .5s ease;
+						}
+						&.swiper-pagination-bullet-active {
+							span.active {
+								width: 100%;
+							}
+						}
+					}
+				}
+				&.company-images-pagination {
+					padding-top: 17px;
+				}
+			}
+			.left {
+				.inner {
+					background-color: rgba( #161616, .69 );
+					padding: 1rem 1.45rem;
+					max-width: 302px;
+					img {
+						margin-bottom: 17px;
+					}
+					p {
+						line-height: 1.875;
+						font-size: rem-calc(16);
+					}
+				}
+			}
+			.company-images {
+				transform: translate(12px, -12px);
+				.swiper-slide {
+					padding: 12px;
+					img {
+						box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
 					}
 				}
 			}
 		}
-		.company-images {
-			.swiper-slide {
-				padding: 12px;
-				img {
-					box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
-				}
+		hr {
+			margin-top: 3.5rem;
+			margin-top: clamp(3.5rem, 3.119rem + 1.905vw, 5rem);
+			@include breakpoint(medium) {
+				margin-top: 5rem;
+				margin-top: clamp(3.5rem, 3.119rem + 1.905vw, 5rem);
 			}
 		}
 	}

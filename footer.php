@@ -8,43 +8,92 @@
  *
  * @package trailhead
  */
-
+$global_address = get_field('global_address', 'option') ?? null;
+$global_telephone_number = get_field('global_telephone_number', 'option') ?? null;
+$global_email_address = get_field('global_email_address', 'option') ?? null;
+$logo = get_field('footer_logo', 'option');
+$copyright_text = get_field('footer_copyright_text', 'option') ?? null;
+$subfooter_links = get_field('footer_subfooter_links', 'option') ?? null;
 ?>
 
 				<footer id="colophon" class="site-footer">
-					<div class="site-info">
+					<div class="footer-info">
 						<div class="grid-container">
+							<div class="grid-x grid-padding-x align-center">
+								<?php 
+								$image = $logo['id'] ?? null;
+								$size = 'full';
+								if( $image ) :?>
+									<div class="cell small-12 medium-shrink">
+										<?=wp_get_attachment_image( $image, $size );?>
+									</div>
+								<?php endif;?>
+								<?php if( !empty( $global_address ) ):?>
+									<div class="cell small-12 medium-shrink">
+										<p><?=wp_kses_post($global_address);?></p>
+									</div>
+								<?php endif;?>
+								<?php if( !empty( $global_telephone_number ) || !empty( $global_email_address ) ):?>
+									<div class="cell small-12 medium-shrink">
+										<?php if( !empty( $global_telephone_number ) ):?>
+											<div>
+												Tel: <a href="tel:<?=esc_attr( $global_email_address );?>">
+													<?=esc_attr( $global_email_address );?>
+												</a>
+											</div>
+										<?php endif;?>
+										<?php if( !empty( $global_email_address ) ):?>
+											<div>
+												Email: <a href="mailto:<?=esc_attr( $global_email_address );?>">
+													<?=esc_attr( $global_email_address );?>
+												</a>
+											</div>
+										<?php endif;?>
+									</div>
+								<?php endif;?>
+								<?php if ( has_nav_menu( 'social-links' ) ) :?>
+									<div class="cell small-12 medium-shrink">
+										<?php trailhead_social_links();?>
+									</div>
+								<?php endif;?>
+							</div>
+						</div>
+					</div>
+					<div class="site-info">
+						<div class="grid-container fluid">
 							<div class="grid-x grid-padding-x">
-								<div class="cell small-12">
-									<?php 
-									$image = get_field('footer_logo', 'option');
-									if( !empty( $image ) ): ?>
-									<div class="top">
-										<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-									</div>
-									<?php endif; ?>
-									<?php 
-									$link = get_field('parent_company_link', 'option');
-									if( $link ): 
-										$link_url = $link['url'];
-										$link_title = $link['title'];
-										$link_target = $link['target'] ? $link['target'] : '_self';
+								<div class="cell small-12 tablet-auto">
+									<p>
+										&copy;<?= date("Y");?>
+										<?php if( !empty( $copyright_text ) ){
+											echo $copyright_text;	
+										};?>
+										<?php if( !empty($subfooter_links) ):
+											$i = 1; foreach($subfooter_links as $subfooter_link):	
+											$link = $subfooter_link['link'] ?? null;
+												if( $link ): 
 										?>
-									<div class="bottom">
-										<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-									</div>
-									<?php endif; ?>	
-									<a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>">
-										<?php
-										/* translators: %s: CMS name, i.e. WordPress. */
-										printf( esc_html__( 'Proudly powered by %s', '_s' ), 'WordPress' );
-										?>
-									</a>
-									<span class="sep"> | </span>
-										<?php
-										/* translators: 1: Theme name, 2: Theme author. */
-										printf( esc_html__( 'Theme: %1$s by %2$s.', '_s' ), '_s', '<a href="https://automattic.com/">Automattic</a>' );
-										?>
+											<span>
+												<?php if( $i > 1 ):?>
+													<span>|</span>
+												<?php endif;?>
+												<?php 
+													$link_url = $link['url'];
+													$link_title = $link['title'];
+													$link_target = $link['target'] ? $link['target'] : '_self';
+													?>
+													<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+											</span>
+										<?php endif; $i++; endforeach; endif;?>
+									</p>
+								</div>
+								<div class="cell small-12 tablet-shrink">
+									<p>
+										Website by:
+										<a class="uppercase" href="https://gopipedream.com/" target="_blank">
+											Pipedream
+										</a>
+									</p>
 								</div>
 							</div>
 						</div>

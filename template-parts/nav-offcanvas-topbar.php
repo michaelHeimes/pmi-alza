@@ -11,7 +11,7 @@
 
 <div class="top-bar-wrap grid-container fluid">
 
-	<div class="top-bar grid-x grid-padding-x" id="top-bar-menu">
+	<div class="top-bar grid-x grid-padding-x align-middle" id="top-bar-menu">
 	
 		<div class="top-bar-left float-left cell shrink">
 			
