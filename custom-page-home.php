@@ -40,7 +40,7 @@ $group_companies_slides = $fields['group_companies_slides'] ?? null;
 						<section class="intro-copy">
 							<div class="grid-container">
 								<div class="grid-x grid-padding-x align-center">
-									<div class="cell small-12 large-8 xlarge-6">
+									<div class="cell small-12 medium-11 tablet-10 large-8 xlarge-6">
 										<?php if( !empty( $intro_heading ) ):?>
 											<h1 class="h2 text-center">
 												<?=wp_kses_post($intro_heading);?>
@@ -127,7 +127,7 @@ $group_companies_slides = $fields['group_companies_slides'] ?? null;
 										$size = 'full';
 										if( $image ) :?>
 											<div class="logo-wrap text-center">
-												<?=wp_get_attachment_image( $image, $size );?>
+												<?=wp_get_attachment_image( $image, $size, false, array( 'class' => 'relative' ) );?>
 											</div>
 										<?php endif; ?>
 										<?php if( !empty( $group_companies_slides  ) ):?>
@@ -145,9 +145,9 @@ $group_companies_slides = $fields['group_companies_slides'] ?? null;
 													$slider_images = $slide['slider_images'] ?? null;	
 												?>
 													<div class="swiper-slide company-slide" data-company="<?=esc_html( $name );?>" data-color="<?=esc_html( $brand_color );?>">
-														<div class="grid-x grid-padding-x">
+														<div class="grid-x grid-padding-x align-justify">
 															<?php if( !empty( $logo ) || !empty( $description ) || !empty( $button_link ) ):?>
-																<div class="left cell small-12 medium-4">
+																<div class="left cell small-12 medium-5 tablet-4">
 																	<div class="inner height-100 grid-x flex-dir-column align-justify">
 																		<div>
 																			<?php 
@@ -174,7 +174,7 @@ $group_companies_slides = $fields['group_companies_slides'] ?? null;
 																	</div>
 																</div>
 																<?php if( !empty( $slider_images ) ):?>
-																	<div class="company-images right cell small-12 medium-8">
+																	<div class="company-images right cell small-12 medium-7 tablet-8">
 																		<div class="overflow-hidden">
 																			<div class="company-images-swiper">
 																				<div class="swiper-wrapper">

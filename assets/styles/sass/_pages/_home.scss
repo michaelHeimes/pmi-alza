@@ -172,10 +172,15 @@
 				}
 			}
 			.left {
+				@include breakpoint(medium only) {
+					padding-right: 0;
+				}
 				.inner {
 					background-color: rgba( #161616, .69 );
 					padding: 1rem 1.45rem;
-					max-width: 302px;
+					@include breakpoint(tablet) {
+						max-width: 302px;
+					}
 					img {
 						margin-bottom: 17px;
 					}
@@ -186,7 +191,19 @@
 				}
 			}
 			.company-images {
-				transform: translate(12px, -12px);
+				@include breakpoint(small down) {
+				transform: translate(0px, -12px);
+				margin-left: -12px;
+				margin-right: -12px;
+				width: calc(100% + 24px);
+				}
+				@include breakpoint(medium only) {
+					padding-left: 0;
+				}
+				@include breakpoint(medium) {
+					transform: translate(12px, -12px);
+					max-width: 679px;
+				}
 				.swiper-slide {
 					padding: 12px;
 					img {

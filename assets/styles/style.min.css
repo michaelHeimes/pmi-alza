@@ -716,7 +716,7 @@ h2, .h2 {
 }
 
 h3, .h3 {
-  font-size: 1.1875rem;
+  font-size: 1.53125rem;
   line-height: 1.4;
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -751,7 +751,7 @@ h6, .h6 {
     font-size: 2.875rem;
   }
   h3, .h3 {
-    font-size: 1.9375rem;
+    font-size: 2.1875rem;
   }
   h4, .h4 {
     font-size: 1.5625rem;
@@ -7790,6 +7790,7 @@ button.no-bg:hover svg path,
 }
 
 hr.gradient {
+  max-width: none;
   width: 100%;
   margin: 0;
   border: 0;
@@ -8293,6 +8294,20 @@ h2,
   }
 }
 
+h3,
+.h3 {
+  line-height: 1.195;
+  font-size: 1.531rem;
+  font-size: clamp(1.531rem, 1.365rem + 0.833vw, 2.188rem);
+}
+@media print, screen and (min-width: 40em) {
+  h3,
+  .h3 {
+    font-size: 2.188rem;
+    font-size: clamp(1.531rem, 1.365rem + 0.833vw, 2.188rem);
+  }
+}
+
 p,
 .p {
   line-height: 1.9444;
@@ -8404,11 +8419,58 @@ header.site-header #top-bar-menu .menu-toggle-wrap a#menu-toggle.clicked span:nt
           transform: translate(0px, -12px) rotate(45deg);
 }
 
+.footer-cta {
+  padding-top: 4.55rem;
+  padding-top: clamp(4.55rem, 4.055rem + 2.476vw, 6.5rem);
+}
+@media print, screen and (min-width: 40em) {
+  .footer-cta {
+    padding-top: 6.5rem;
+    padding-top: clamp(4.55rem, 4.055rem + 2.476vw, 6.5rem);
+  }
+}
+.footer-cta h2 {
+  margin-bottom: 1.55em;
+}
+.footer-cta hr {
+  margin-top: 4.681rem;
+  margin-top: clamp(4.681rem, 4.172rem + 2.548vw, 6.688rem);
+}
+@media print, screen and (min-width: 40em) {
+  .footer-cta hr {
+    margin-top: 6.688rem;
+    margin-top: clamp(4.681rem, 4.172rem + 2.548vw, 6.688rem);
+  }
+}
+
 footer#colophon .footer-info {
   background-color: #000;
+  padding-top: 5.031rem;
+  padding-top: clamp(5.031rem, 4.484rem + 2.738vw, 7.188rem);
+  padding-bottom: 1.925rem;
+  padding-bottom: clamp(1.925rem, 1.715rem + 1.048vw, 2.75rem);
+}
+@media print, screen and (min-width: 40em) {
+  footer#colophon .footer-info {
+    padding-top: 7.188rem;
+    padding-top: clamp(5.031rem, 4.484rem + 2.738vw, 7.188rem);
+    padding-bottom: 2.75rem;
+    padding-bottom: clamp(1.925rem, 1.715rem + 1.048vw, 2.75rem);
+  }
+}
+footer#colophon .footer-info .footer-col {
+  margin-bottom: 1.5rem;
 }
 footer#colophon .site-info {
   background-color: #161A1C;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+footer#colophon .site-info p {
+  color: #7D7D7D;
+  margin-bottom: 0;
+  font-size: 0.9375rem;
+  line-height: 1.466;
 }
 
 .page-template-custom-page-home .page-banner {
@@ -8605,10 +8667,19 @@ footer#colophon .site-info {
 .page-template-custom-page-home .group-slider .group-slider-swiper .swiper-pagination.company-images-pagination {
   padding-top: 17px;
 }
+@media print, screen and (min-width: 40em) and (max-width: 56.24875em) {
+  .page-template-custom-page-home .group-slider .group-slider-swiper .left {
+    padding-right: 0;
+  }
+}
 .page-template-custom-page-home .group-slider .group-slider-swiper .left .inner {
   background-color: rgba(22, 22, 22, 0.69);
   padding: 1rem 1.45rem;
-  max-width: 302px;
+}
+@media print, screen and (min-width: 56.25em) {
+  .page-template-custom-page-home .group-slider .group-slider-swiper .left .inner {
+    max-width: 302px;
+  }
 }
 .page-template-custom-page-home .group-slider .group-slider-swiper .left .inner img {
   margin-bottom: 17px;
@@ -8617,9 +8688,26 @@ footer#colophon .site-info {
   line-height: 1.875;
   font-size: 1rem;
 }
-.page-template-custom-page-home .group-slider .group-slider-swiper .company-images {
-  -webkit-transform: translate(12px, -12px);
-          transform: translate(12px, -12px);
+@media print, screen and (max-width: 39.99875em) {
+  .page-template-custom-page-home .group-slider .group-slider-swiper .company-images {
+    -webkit-transform: translate(0px, -12px);
+            transform: translate(0px, -12px);
+    margin-left: -12px;
+    margin-right: -12px;
+    width: calc(100% + 24px);
+  }
+}
+@media print, screen and (min-width: 40em) and (max-width: 56.24875em) {
+  .page-template-custom-page-home .group-slider .group-slider-swiper .company-images {
+    padding-left: 0;
+  }
+}
+@media print, screen and (min-width: 40em) {
+  .page-template-custom-page-home .group-slider .group-slider-swiper .company-images {
+    -webkit-transform: translate(12px, -12px);
+            transform: translate(12px, -12px);
+    max-width: 679px;
+  }
 }
 .page-template-custom-page-home .group-slider .group-slider-swiper .company-images .swiper-slide {
   padding: 12px;

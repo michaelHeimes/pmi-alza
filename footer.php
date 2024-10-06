@@ -24,17 +24,17 @@ $subfooter_links = get_field('footer_subfooter_links', 'option') ?? null;
 								$image = $logo['id'] ?? null;
 								$size = 'full';
 								if( $image ) :?>
-									<div class="cell small-12 medium-shrink">
+									<div class="footer-col cell small-12 medium-shrink">
 										<?=wp_get_attachment_image( $image, $size );?>
 									</div>
 								<?php endif;?>
 								<?php if( !empty( $global_address ) ):?>
-									<div class="cell small-12 medium-shrink">
+									<div class="footer-col cell small-12 medium-shrink">
 										<p><?=wp_kses_post($global_address);?></p>
 									</div>
 								<?php endif;?>
 								<?php if( !empty( $global_telephone_number ) || !empty( $global_email_address ) ):?>
-									<div class="cell small-12 medium-shrink">
+									<div class="footer-col cell small-12 medium-shrink">
 										<?php if( !empty( $global_telephone_number ) ):?>
 											<div>
 												Tel: <a href="tel:<?=esc_attr( $global_email_address );?>">
@@ -52,14 +52,14 @@ $subfooter_links = get_field('footer_subfooter_links', 'option') ?? null;
 									</div>
 								<?php endif;?>
 								<?php if ( has_nav_menu( 'social-links' ) ) :?>
-									<div class="cell small-12 medium-shrink">
+									<div class="footer-col cell small-12 medium-shrink">
 										<?php trailhead_social_links();?>
 									</div>
 								<?php endif;?>
 							</div>
 						</div>
 					</div>
-					<div class="site-info">
+					<div class="site-info text-center tablet-text-left">
 						<div class="grid-container fluid">
 							<div class="grid-x grid-padding-x">
 								<div class="cell small-12 tablet-auto">

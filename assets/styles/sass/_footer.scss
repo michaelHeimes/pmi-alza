@@ -1,9 +1,50 @@
+.footer-cta {
+	padding-top: 4.55rem;
+	padding-top: clamp(4.55rem, 4.055rem + 2.476vw, 6.5rem);
+	@include breakpoint(medium) {
+		padding-top: 6.5rem;
+		padding-top: clamp(4.55rem, 4.055rem + 2.476vw, 6.5rem);
+	}
+	h2 {
+		margin-bottom: 1.55em;
+	}
+	hr {
+		margin-top: 4.681rem;
+		margin-top: clamp(4.681rem, 4.172rem + 2.548vw, 6.688rem);
+		@include breakpoint(medium) {
+			margin-top: 6.688rem;
+			margin-top: clamp(4.681rem, 4.172rem + 2.548vw, 6.688rem);
+		}
+	}
+}
+
 footer#colophon {
 	.footer-info {
 		background-color: #000;
+		padding-top: 5.031rem;
+		padding-top: clamp(5.031rem, 4.484rem + 2.738vw, 7.188rem);
+		padding-bottom: 1.925rem;
+		padding-bottom: clamp(1.925rem, 1.715rem + 1.048vw, 2.75rem);
+		@include breakpoint(medium) {
+			padding-top: 7.188rem;
+			padding-top: clamp(5.031rem, 4.484rem + 2.738vw, 7.188rem);
+			padding-bottom: 2.75rem;
+			padding-bottom: clamp(1.925rem, 1.715rem + 1.048vw, 2.75rem);
+		}
+		.footer-col {
+			margin-bottom: 1.5rem;
+		}
 	}
 	.site-info {
 		background-color: #161A1C;
+		padding-top: rem-calc(20);
+		padding-bottom: rem-calc(20);
+		p {
+			color: #7D7D7D;
+			margin-bottom: 0;
+			font-size: rem-calc(15);
+			line-height: 1.466;
+		}
 	}
 	
 }
