@@ -59,7 +59,7 @@
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.orbit.js
 
 // Modals
-//@*prepros-prepend vendor/foundation/js/plugins/foundation.reveal.js
+//@prepros-prepend vendor/foundation/js/plugins/foundation.reveal.js
 
 // Form UI element
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.slider.js
@@ -271,7 +271,8 @@
                 const companyImageSwiper = new Swiper(".company-images-swiper", {
                     slidesPerView: 1,
                     spaceBetween: 1,
-                    grabCursor: true,
+                    grabCursor: false,
+                    simulateTouch: false,
                     loop: true,
                     autoplay: {
                         delay: 5000,

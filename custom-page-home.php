@@ -142,7 +142,7 @@ $group_companies_slides = $fields['group_companies_slides'] ?? null;
 													$logo = $slide['logo'] ?? null;	
 													$description = $slide['description'] ?? null;	
 													$button_link = $slide['button_link'] ?? null;	
-													$slider_images = $slide['slider_images'] ?? null;	
+													$slides = $slide['image_video_slides'] ?? null;	
 												?>
 													<div class="swiper-slide company-slide" data-company="<?=esc_html( $name );?>" data-color="<?=esc_html( $brand_color );?>">
 														<div class="grid-x grid-padding-x align-justify">
@@ -173,20 +173,64 @@ $group_companies_slides = $fields['group_companies_slides'] ?? null;
 																		<?php endif; ?>
 																	</div>
 																</div>
-																<?php if( !empty( $slider_images ) ):?>
+																<?php if( !empty( $slides ) ):?>
 																	<div class="company-images right cell small-12 medium-7 tablet-8">
 																		<div class="overflow-hidden">
 																			<div class="company-images-swiper">
 																				<div class="swiper-wrapper">
-																					<?php foreach($slider_images as $image):?>
-																						<div class="swiper-slide">
+																					<?php $nested_slide = 1;  foreach($slides as $slide):
+																						$media_type = $slide['media_type'] ?? null; 	
+																						$image = $slide['image'] ?? null; 	
+																						$video_url = $slide['video_url'] ?? null; 	
+																						$slide_id =  sanitize_title($name) . '-slide-' . $nested_slide;
+																					?>
+																						<div class="swiper-slide type-<?=esc_attr( $media_type );?>">
 																							<?php 
 																							$size = 'full';
 																							if( $image ) {
 																								echo wp_get_attachment_image( $image['id'], $size );
-																							}?>
+																							}
+																							if( $media_type == 'video' && !empty( $video_url ) ) :?>
+																								<button class="pointer" data-open="<?=$slide_id;?>" aria-controls="slider-image-modal" aria-haspopup="dialog">
+																									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z" fill="#fff"/></svg>
+																								</button>
+																								<div class="reveal large" id="<?=$slide_id;?>" data-reveal data-reset-on-close="true">
+																									<div class="text-right">
+																										<button class="close-button pointer" data-close aria-label="Close modal" type="button">
+																											<svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z" fill="<?=$brand_color;?>"/></svg>
+																										</button>
+																									</div>
+																									<div class="responsive-embed widescreen">
+																										<?php
+																										
+																										// Load value.
+																										$iframe = $video_url;
+																										
+																										// Use preg_match to find iframe src.
+																										preg_match('/src="(.+?)"/', $iframe, $matches);
+																										$src = $matches[1];
+																										
+																										// Add extra parameters to src and replace HTML.
+																										$params = array(
+																											'controls'  => 1,
+																											'hd'        => 1,
+																											'autohide'  => 1
+																										);
+																										$new_src = add_query_arg($params, $src);
+																										$iframe = str_replace($src, $new_src, $iframe);
+																										
+																										// Add extra attributes to iframe HTML.
+																										$attributes = 'frameborder="0"';
+																										$iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
+																										
+																										// Display customized HTML.
+																										echo $iframe;
+																										?>
+																									</div>
+																								</div>
+																							<?php endif;?>
 																						</div>
-																					<?php endforeach;?>
+																					<?php $nested_slide++; endforeach;?>
 																				</div>
 																				<div class="swiper-pagination company-images-pagination"></div>
 																			</div>
