@@ -82,6 +82,11 @@
 			padding-top: 7.625rem;
 			padding-top: clamp(5.338rem, 4.757rem + 2.905vw, 7.625rem);
 		}
+		.cell {
+			@include breakpoint(small down) {
+				margin-bottom: 2.5rem;
+			}
+		}
 		h2 {
 			margin-bottom: 2em;
 		}

@@ -9,12 +9,12 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<img src="<?php echo get_template_directory_uri(); ?>/assets/images/alza-interior-topper.webp">
+<article id="post-<?php the_ID(); ?>" <?php post_class('relative'); ?>>
+	<img class="topper" src="<?php echo get_template_directory_uri(); ?>/assets/images/alza-interior-topper.webp">
 	<section class="entry-content">
         <div class="grid-container relative">
             <div class="grid-x grid-padding-x align-center">
-                <div class="cell small-12 large-10 xlarge-8">
+                <div class="cell small-12 large-10 xlarge-9 xxlarge-8">
                     <?php the_content();?>
 		            <?php get_template_part('template-parts/loop-modules');?>
                 </div>

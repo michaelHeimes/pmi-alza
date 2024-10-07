@@ -39,42 +39,51 @@
 				border: 2px solid $color-mint;
 			}
 		}
-		.ginput_container_radio .gfield_radio {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: 10px;
-			align-items: flex-start;
-			@media (min-width: 768px) {
-				grid-template-columns: 1fr 2fr;
+		.gfield--type-radio {
+			.gfield_label {
+				margin-bottom: 1.65em !important;
 			}
-			.gchoice {
-				display: flex;
-				align-items: center;
-				position: relative;
-				label {
-					&:before {
-						content: '';
-						display: block;
-						width: 9px;
-						height: 9px;
-						border: 2px solid $color-mint;
-						background-color: $color-mint;
-						border-radius: 100%;
-						position: absolute;
-						top: .64em;
-						left: 0;
+			.ginput_container_radio {
+	
+				.gfield_radio {
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					gap: 10px;
+					align-items: flex-start;
+					@media (min-width: 768px) {
+						grid-template-columns: 1fr 2fr;
+					}
+	
+					.gchoice {
+						display: flex;
+						align-items: center;
+						position: relative;
+						label {
+							&:before {
+								content: '';
+								display: block;
+								width: 9px;
+								height: 9px;
+								border: 2px solid $color-mint;
+								background-color: $color-mint;
+								border-radius: 100%;
+								position: absolute;
+								top: .64em;
+								left: 0;
+							}
+						}
+						input {
+							margin: 0;
+							opacity: 0;
+							&:checked + label:before {
+								background-color: $black;
+							}
+						}
+					}
+					.gfield-choice-input {
+						margin-right: 10px; /* Adjust space between radio button and label */
 					}
 				}
-				input {
-					margin: 0;
-					opacity: 0;
-					&:checked + label:before {
-						background-color: $black;
-					}
-				}
-			}
-			.gfield-choice-input {
-				margin-right: 10px; /* Adjust space between radio button and label */
 			}
 		}
 		@media (min-width: 641px) {
@@ -88,6 +97,14 @@
 					padding-right: .9804%;
 					padding-left: 29px;
 				}
+			}
+		}
+		.gform_footer {
+			padding-bottom: 0;
+			margin-bottom: 0;
+			input {
+				@extend .border;
+				margin-bottom: 0;
 			}
 		}
 	}
