@@ -22,7 +22,6 @@ $agd_title = $fields['agd_title'] ?? null;
 $agd_icon_text_rows = $fields['agd_icon_text_rows'] ?? null;
 
 // Group Slider
-$group_background_image = $fields['group_background_image'] ?? null;
 $group_slider_logo = $fields['group_slider_logo'] ?? null;
 $group_companies_slides = $fields['group_companies_slides'] ?? null;
 ?>
@@ -58,7 +57,9 @@ $group_companies_slides = $fields['group_companies_slides'] ?? null;
 												<?php get_template_part('template-parts/part', 'global-cta-links',
 													array(
 														'global_phone_number' => $global_phone_number,
+														'phone_classes' => 'shrink',
 														'global_quote_link' => $global_quote_link,	
+														'quote_classes' => 'small-12 medium-shrink',
 													),
 												);?>
 											</div>
@@ -112,14 +113,26 @@ $group_companies_slides = $fields['group_companies_slides'] ?? null;
 						<?php endif;?>
 						
 						<?php if( !empty( $group_slider_logo ) || !empty( $group_companies_slides ) ):?>
-						<section class="group-slider has-object-fit">
-							<?php 
-							$image = $group_background_image['id'] ?? null;
-							$size = 'full';
-							if( $image ) {
-								echo wp_get_attachment_image( $image, $size );
-							}?>
-							<div class="grid-container">
+						<section class="group-slider relative">
+							<?php if( !empty( $group_companies_slides  ) ) :?>
+								<div class="group-slider-bg-swiper overflow-hidden">
+									<div class="swiper-wrapper">
+										<?php foreach( $group_companies_slides as $slide ) :
+											$background_image = $slide['background_image'] ?? null;
+										?>
+											<div class="swiper-slide bg-slide has-object-fit">
+												<?php 
+												$image = $background_image['id'] ?? null;
+												$size = 'full';
+												if( $image ) {
+													echo wp_get_attachment_image( $image, $size );
+												}?>
+											</div>
+										<?php endforeach;?>
+									</div>
+								</div>
+							<?php endif;?>
+							<div class="grid-container relative inner">
 								<div class="grid-x grid-padding-x align-center">
 									<div class="cell small-12 large-10 xlarge-8">
 										<?php 

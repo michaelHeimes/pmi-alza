@@ -114,6 +114,16 @@
 				margin-bottom: clamp(2.975rem, 2.651rem + 1.619vw, 4.25rem);
 			}
 		}
+		.group-slider-bg-swiper{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.inner {
+			z-index: 1;
+		}
 		.group-slider-swiper {
 			> .grid-x {
 				width: 90%;

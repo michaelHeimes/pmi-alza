@@ -34,6 +34,11 @@ footer#colophon {
 		.footer-col {
 			margin-bottom: 1.5rem;
 		}
+		p,
+		.p {
+			font-size: rem-calc(15);
+			line-height: 1.4666;
+		}
 	}
 	.site-info {
 		background-color: $color-charcoal;

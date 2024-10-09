@@ -229,13 +229,13 @@ require_once(get_template_directory().'/inc/acf-options.php');
 //require_once(get_template_directory().'/inc/acf-blocks.php');
 
 // Disable Gutenberg
-// require_once(get_template_directory().'/inc/disable-gutenberg.php'); 
+require_once(get_template_directory().'/inc/disable-gutenberg.php'); 
 
 // Add Page Slug to Body Class
 // require_once(get_template_directory().'/inc/page-slug-body-class.php');
 
 // Remove Emoji Support
-// require_once(get_template_directory().'/inc/disable-emoji.php'); 
+require_once(get_template_directory().'/inc/disable-emoji.php'); 
 
 // Related post function - no need to rely on plugins
 // require_once(get_template_directory().'/inc/related-posts.php'); 

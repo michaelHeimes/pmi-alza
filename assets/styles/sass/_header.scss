@@ -18,6 +18,37 @@ header.site-header {
 				padding: 0;
 			}			
 		}
+		.top-bar-left {
+			justify-content: center;
+			@include breakpoint(medium down) {
+				margin-bottom: 1rem;
+			}
+			@include breakpoint(tablet) {
+				justify-content: flex-start;
+			}
+		}
+		.top-bar-right {
+			> .grid-x {
+				justify-content: center;
+				@include breakpoint(tablet) {
+					justify-content: flex-end;
+				}
+			}
+			.btns-wrap {
+				justify-content: center;
+				@include breakpoint(tablet) {
+					justify-content: flex-end;
+				}
+				@media (max-width: 459px) {
+					.button {
+						padding: 12px 20px;
+						svg {
+							display: none;
+						}
+					}
+				}
+			}
+		}
 			
 		#main-nav {
 			align-items: center;

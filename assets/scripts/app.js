@@ -231,6 +231,8 @@
     
     _app.group_slider = function() {
         const groupSwiperSlides = document.querySelectorAll('.group-slider-swiper .swiper-slide.company-slide');
+        const groupSwiperBGSlides = document.querySelectorAll('.group-slider-bg-swiper .swiper-slide.bg-slide');
+
         if (groupSwiperSlides.length > 1) {
             let groupSwiper = new Swiper('.group-slider-swiper', {
                 slidesPerView: 1,
@@ -264,6 +266,17 @@
                     },
                 },
             });
+            
+            let groupBgSwiper = new Swiper('.group-slider-bg-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 1,
+                allowTouchMove: false,
+                clickable: false,
+                effect: "fade",
+            });
+            
+            groupSwiper.controller.control = groupBgSwiper;
+            groupBgSwiper.controller.control = groupSwiper;
             
             const companyImageSlides = document.querySelectorAll('.company-images-swiper .swiper-slide');
             if (companyImageSlides.length > 1) {

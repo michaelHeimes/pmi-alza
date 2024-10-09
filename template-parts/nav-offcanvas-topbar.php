@@ -13,7 +13,7 @@
 
 	<div class="top-bar grid-x grid-padding-x align-middle" id="top-bar-menu">
 	
-		<div class="top-bar-left float-left cell shrink">
+		<div class="top-bar-left float-left cell small-12 tablet-shrink grid-x">
 			
 			<div class="site-branding show-for-sr">
 				<?php
@@ -46,15 +46,19 @@
 		</div>
 
 		<?php if( !empty( $global_phone_number ) || !empty( $global_quote_link ) ) :?>
-			<div class="top-bar-right cell auto show-for-medium">
-				<div class="grid-x grid-padding-x align-right">
-					<?php get_template_part('template-parts/part', 'global-cta-links',
-						array(
-							'global_phone_number' => $global_phone_number,
-							'global_quote_link' => $global_quote_link,	
-						),
-					);?>
-				</div>
+			<div class="top-bar-right cell small-12 medium-auto">
+
+						<div class="btns-wrap grid-x grid-padding-x">
+							<?php get_template_part('template-parts/part', 'global-cta-links',
+								array(
+									'global_phone_number' => $global_phone_number,
+									'phone_classes' => 'shrink',
+									'global_quote_link' => $global_quote_link,	
+									'quote_classes' => 'shrink',
+								),
+							);?>
+						</div>
+
 			</div>
 		<?php endif ;?>
 

@@ -36,14 +36,14 @@ $subfooter_links = get_field('footer_subfooter_links', 'option') ?? null;
 								<?php if( !empty( $global_telephone_number ) || !empty( $global_email_address ) ):?>
 									<div class="footer-col cell small-12 medium-shrink">
 										<?php if( !empty( $global_telephone_number ) ):?>
-											<div>
+											<div class="p">
 												Tel: <a href="tel:<?=esc_attr( $global_email_address );?>">
 													<?=esc_attr( $global_email_address );?>
 												</a>
 											</div>
 										<?php endif;?>
 										<?php if( !empty( $global_email_address ) ):?>
-											<div>
+											<div class="p">
 												Email: <a href="mailto:<?=esc_attr( $global_email_address );?>">
 													<?=esc_attr( $global_email_address );?>
 												</a>
