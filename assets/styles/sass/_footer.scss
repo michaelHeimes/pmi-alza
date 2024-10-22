@@ -39,6 +39,11 @@ footer#colophon {
 			font-size: rem-calc(15);
 			line-height: 1.4666;
 		}
+		#social-links {
+			@include breakpoint(small down) {
+				justify-content: center;
+			}
+		}
 	}
 	.site-info {
 		background-color: $color-charcoal;

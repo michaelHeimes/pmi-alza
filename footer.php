@@ -16,7 +16,7 @@ $copyright_text = get_field('footer_copyright_text', 'option') ?? null;
 $subfooter_links = get_field('footer_subfooter_links', 'option') ?? null;
 ?>
 
-				<footer id="colophon" class="site-footer">
+				<footer id="colophon" class="site-footer text-center medium-text-left">
 					<div class="footer-info">
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x align-center">
@@ -37,8 +37,8 @@ $subfooter_links = get_field('footer_subfooter_links', 'option') ?? null;
 									<div class="footer-col cell small-12 medium-shrink">
 										<?php if( !empty( $global_telephone_number ) ):?>
 											<div class="p">
-												Tel: <a href="tel:<?=esc_attr( $global_email_address );?>">
-													<?=esc_attr( $global_email_address );?>
+												Tel: <a href="tel:<?=esc_attr( $global_telephone_number );?>">
+													<?=esc_attr( $global_telephone_number  );?>
 												</a>
 											</div>
 										<?php endif;?>

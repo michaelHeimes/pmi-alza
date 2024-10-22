@@ -24,7 +24,9 @@ $global_quote_link = get_field('global_quote_link', 'option') ?? null;
 							<?php get_template_part('template-parts/part', 'global-cta-links',
 								array(
 									'global_phone_number' => $global_phone_number,
+									'phone_classes' => 'shrink',
 									'global_quote_link' => $global_quote_link,	
+									'quote_classes' => 'small-12 medium-shrink',
 								),
 							);?>
 						</div>

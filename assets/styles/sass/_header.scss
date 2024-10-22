@@ -40,6 +40,9 @@ header.site-header {
 					justify-content: flex-end;
 				}
 				@media (max-width: 459px) {
+					> .cell {
+						width: 100%;
+					}
 					.button {
 						padding: 12px 20px;
 						svg {
@@ -113,7 +116,9 @@ header.site-header {
 		}
 		
 		.button {
-			margin-bottom: 0;
+			@media (min-width: 460px) {
+				margin-bottom: 0;
+			}
 		}
 		
 		.menu-toggle-wrap {

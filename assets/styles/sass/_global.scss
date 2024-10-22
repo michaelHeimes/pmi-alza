@@ -116,12 +116,13 @@ button,
 }
 
 hr.gradient {
+	z-index: 1;
 	max-width: none;
 	width: 100%;
 	margin: 0;
 	border: 0;
 	height: 6px;
-	background-image: linear-gradient(-90deg, #ef432a 0%, #255f99 48.8%, #f6732a 100%);
+	background-image: linear-gradient(225deg, #2c6dab 0%, #ea2331 48.8%, #e5853b 100%);
 }
 
 /*********************
