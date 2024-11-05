@@ -13,7 +13,7 @@
 
 	<div class="top-bar grid-x grid-padding-x align-middle" id="top-bar-menu">
 	
-		<div class="top-bar-left float-left cell small-12 tablet-shrink grid-x">
+		<div class="top-bar-left float-left cell shrink grid-x">
 			
 			<div class="site-branding show-for-sr">
 				<?php
@@ -44,29 +44,28 @@
 			</ul>
 						
 		</div>
+		
+		<div class="top-bar-right cell small-12 medium-auto grid-x flex-dir-column-reverse xlarge-flex-dir-row show-for-large">
+			<?php trailhead_top_nav();?>
+			<?php if( !empty( $global_phone_number ) || !empty( $global_quote_link ) ) :?>
+				<div class="btns-wrap grid-x grid-padding-x">
+					<?php get_template_part('template-parts/part', 'global-cta-links',
+						array(
+							'global_phone_number' => $global_phone_number,
+							'phone_classes' => 'shrink',
+							'global_quote_link' => $global_quote_link,	
+							'quote_classes' => 'shrink',
+						),
+					);?>
+				</div>
+			<?php endif ;?>
+		</div>
 
-		<?php if( !empty( $global_phone_number ) || !empty( $global_quote_link ) ) :?>
-			<div class="top-bar-right cell small-12 medium-auto">
-
-						<div class="btns-wrap grid-x grid-padding-x">
-							<?php get_template_part('template-parts/part', 'global-cta-links',
-								array(
-									'global_phone_number' => $global_phone_number,
-									'phone_classes' => 'shrink',
-									'global_quote_link' => $global_quote_link,	
-									'quote_classes' => 'shrink',
-								),
-							);?>
-						</div>
-
-			</div>
-		<?php endif ;?>
-
-		<!-- <div class="menu-toggle-wrap top-bar-right float-right hide-for-tablet">
+		<div class="cell menu-toggle-wrap grid-x align-right hide-for-large">
 			<ul class="menu">
 				<li><a id="menu-toggle" data-toggle="off-canvas"><span></span><span></span><span></span></a></li>
 			</ul>
-		</div> -->
+		</div>
 	</div>
 	
 </div>

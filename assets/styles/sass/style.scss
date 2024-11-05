@@ -44,7 +44,7 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 //@include foundation-tooltip;
 
 // Containers
-// @include foundation-accordion;
+@include foundation-accordion;
 //@include foundation-media-object;
 //@include foundation-orbit;
 @include foundation-responsive-embed;
@@ -81,7 +81,6 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 --------------------------------------------------------------*/
 @import "global";
 @import "typography";
-@import "default";
 @import "header";
 @import "footer";
 @import "forms";
@@ -91,3 +90,4 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 // @import "_modules/page-modules";
 
 @import "_pages/home";
+@import "_pages/default";

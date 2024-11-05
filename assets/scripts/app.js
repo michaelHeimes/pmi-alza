@@ -32,7 +32,7 @@
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.tabs.js
 
 // Accordian
-//@*prepros-prepend vendor/foundation/js/plugins/foundation.accordion.js
+//@prepros-prepend vendor/foundation/js/plugins/foundation.accordion.js
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.accordionMenu.js
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.responsiveAccordionTabs.js
 

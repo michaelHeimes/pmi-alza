@@ -65,6 +65,7 @@
 		}
 		h1 {
 			margin-bottom: 0.72em;
+			@extend .h2;
 		}
 		.btns-wrap {
 			padding-top: 1.4rem;

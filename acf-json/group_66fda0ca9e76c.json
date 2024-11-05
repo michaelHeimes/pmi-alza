@@ -43,66 +43,6 @@
             "prefix_name": 0
         },
         {
-            "key": "field_66fdf5af03de6",
-            "label": "Intro Copy",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
-            "key": "field_66fdf5b903de7",
-            "label": "Heading",
-            "name": "intro_copy_heading",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_66fdf5c703de8",
-            "label": "Copy",
-            "name": "intro_copy_copy",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
             "key": "field_66ff40f9cae80",
             "label": "The Difference",
             "name": "",
@@ -462,6 +402,7 @@
                     "collapsed": "",
                     "button_label": "Add Slide",
                     "rows_per_page": 20,
+                    "parent_repeater": "field_66ff41a5cae87",
                     "sub_fields": [
                         {
                             "key": "field_67030b6e7eabd",
@@ -542,8 +483,7 @@
                             "allow_in_bindings": 0,
                             "parent_repeater": "field_67030b5a7eabc"
                         }
-                    ],
-                    "parent_repeater": "field_66ff41a5cae87"
+                    ]
                 }
             ]
         }
@@ -568,5 +508,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728480702
+    "modified": 1730840623
 }
