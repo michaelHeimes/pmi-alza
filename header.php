@@ -22,6 +22,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Titillium+Web:wght@400;600&display=swap" rel="stylesheet">
 
 	<?php wp_head(); ?>
+	
+	<?php if( !empty( get_field('before_closing_head_tag', 'option') ) ) {
+		echo get_field('before_closing_head_tag', 'option');
+	}?>
+	
 </head>
 
 <body <?php body_class(); ?>>

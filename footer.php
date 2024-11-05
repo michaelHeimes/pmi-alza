@@ -105,6 +105,10 @@ $subfooter_links = get_field('footer_subfooter_links', 'option') ?? null;
 		</div>  <!-- end .off-canvas-content -->
 							
 	</div> <!-- end .off-canvas-wrapper -->
+	
+<?php if( !empty( get_field('before_closing_body_tag', 'option') ) ) {
+	echo get_field('before_closing_body_tag', 'option');
+}?>
 					
 <?php wp_footer(); ?>
 
