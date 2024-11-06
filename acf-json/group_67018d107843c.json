@@ -50,11 +50,11 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_67018d551f802",
-            "label": "CTA Button Links",
-            "name": "",
+            "key": "field_672bbf300b8fd",
+            "label": "Button Group",
+            "name": "clone-button_group",
             "aria-label": "",
-            "type": "message",
+            "type": "clone",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -63,9 +63,13 @@
                 "class": "",
                 "id": ""
             },
-            "message": "These are the Global CTA Button Links.",
-            "new_lines": "wpautop",
-            "esc_html": 0
+            "clone": [
+                "group_65344f8c50623"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         }
     ],
     "location": [
@@ -73,7 +77,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "theme-general-settings"
+                "value": "acf-options-footer"
             }
         ]
     ],
@@ -86,5 +90,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728155293
+    "modified": 1730921253
 }

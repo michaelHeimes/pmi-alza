@@ -4,6 +4,7 @@ $footer_cta_background_image = get_field('footer_cta_background_image', 'option'
 $footer_cta_title = get_field('footer_cta_title', 'option') ?? null;
 $global_phone_number = get_field('global_phone_number', 'option') ?? null;
 $global_quote_link = get_field('global_quote_link', 'option') ?? null;
+$button_links = get_field('button_links', 'option') ?? null;
 ?>
 <section class="footer-cta has-object-fit">
 	<?php 
@@ -18,20 +19,12 @@ $global_quote_link = get_field('global_quote_link', 'option') ?? null;
 				<?php if( !empty( $footer_cta_title ) ):?>
 						<h2 class="text-center"><?=$footer_cta_title;?></h2>
 				<?php endif;?>
-				<?php if( !empty( $global_phone_number ) || !empty( $global_quote_link ) ) :?>
-					<div class="btns-wrap">
-						<div class="grid-x grid-padding-x align-center">
-							<?php get_template_part('template-parts/part', 'global-cta-links',
-								array(
-									'global_phone_number' => $global_phone_number,
-									'phone_classes' => 'shrink',
-									'global_quote_link' => $global_quote_link,	
-									'quote_classes' => 'small-12 medium-shrink',
-								),
-							);?>
-						</div>
-					</div>
-				<?php endif ;?>
+				<?php get_template_part('template-parts/part', 'button-group',
+					array(
+						'alignment' => 'align-center',
+						'button_links' => $button_links,
+					),
+				);?>
 			</div>
 		</div>
 	</div>

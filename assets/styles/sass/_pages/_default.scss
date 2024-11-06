@@ -53,6 +53,21 @@ body.error404,
 body.page-template-default,
 body.page-template-page-search,
 body.single-post {
+	.topper-wrap {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 15.75rem;
+		height: clamp(15.75rem, 14.036rem + 8.571vw, 22.5rem);
+		@include breakpoint(medium) {
+			height: 22.5rem;
+			height: clamp(15.75rem, 14.036rem + 8.571vw, 22.5rem);
+		}
+	}
+	.thumb-wrap {
+		margin-bottom: 3rem;
+	}
 	.entry-content {
 		overflow: hidden;
 		&:not(.accordion-content) {
