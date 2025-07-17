@@ -6,7 +6,7 @@
  *
  * @package trailhead
  */
-
+$show_breadcrumbs = get_field('show_breadcrumbs');
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('relative'); ?>>
@@ -16,6 +16,11 @@
 	<section class="entry-content position-relative">
         <div class="grid-container relative">
             <div class="grid-x grid-padding-x align-center">
+                <?php if($show_breadcrumbs):?>
+                    <div class="content-wrap cell small-12 large-10 xlarge-9 xxlarge-8">
+                        <?php the_breadcrumb();?>
+                    </div>
+                <?php endif;?>
                 <?php if( has_post_thumbnail() ):?>
                     <div class="thumb-wrap cell small-12 large-12 xlarge-10 xxlarge-10">
                         <?php the_post_thumbnail('full');?>

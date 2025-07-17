@@ -48,7 +48,7 @@ header.site-header {
 				@include breakpoint(large down) {
 					margin-top: 1rem;
 				}
-				li {
+				> li {
 					&:not(:first-child) {
 						margin-left: 1rem;
 						@include breakpoint(large) {
@@ -75,6 +75,15 @@ header.site-header {
 					&.current-menu-item {
 						a span:after {
 							background-color: $color-mint;
+						}
+					}
+				}
+				.submenu {
+					padding: rem-calc(20);
+					border-radius: 6px;
+					li.current-menu-item {
+						a {
+							color: $color-mint;
 						}
 					}
 				}
@@ -247,8 +256,32 @@ header.site-header {
 		}
 		ul#offcanvas-nav {
 			padding-bottom: 32px;
-			li {
+			> li {
 				margin-bottom: 24px;
+				&.is-accordion-submenu-parent {
+					.submenu-toggle {
+						&:after {
+							width: auto;
+							height: auto;
+							border: 0;
+							content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="%23fff" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>');
+							transition: transform .3s ease;
+						}
+						&[aria-expanded="true"]:after {
+							transform: rotateX(180deg);
+						}
+					}
+				}
+				.submenu {
+					li { 
+						a {
+							padding-left: 2.5rem;
+						}
+						&.current-menu-item a {
+							color: $color-mint;
+						}
+					}
+				}
 			}
 			a {
 				font-size: clamp(0.938rem, 0.81rem + 0.545vw, 1.219rem);

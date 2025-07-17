@@ -3,7 +3,7 @@ function the_breadcrumb()
 {
     $showOnHome = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
     $delimiter = '<svg xmlns="http://www.w3.org/2000/svg" width="6.986" height="11.144" viewBox="0 0 6.986 11.144">
-  <path id="Path_8753" data-name="Path 8753" d="M-1048.422-2340.772l4.865,4.865-4.865,4.865" transform="translate(1049.129 2341.479)" fill="none" stroke="#f49909" stroke-width="2"/>
+  <path id="Path_8753" data-name="Path 8753" d="M-1048.422-2340.772l4.865,4.865-4.865,4.865" transform="translate(1049.129 2341.479)" fill="none" stroke="#fff" stroke-width="2"/>
 </svg>'; // delimiter between crumbs
     $home = 'Home'; // text for the 'Home' link
     $showCurrent = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show
