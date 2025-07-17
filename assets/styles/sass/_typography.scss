@@ -29,7 +29,9 @@ h3,
 	}
 }
 p,
-.p {
+.p,
+ul,
+ol {
 	line-height: 1.9444;
 	font-size: 1rem;
 	font-size: clamp(1rem, 0.968rem + 0.159vw, 1.125rem);

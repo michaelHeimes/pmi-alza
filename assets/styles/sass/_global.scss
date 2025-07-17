@@ -60,6 +60,21 @@ svg {
 	cursor: pointer;
 }
 
+.btns-group {
+	@media (max-width: 460px) {
+		> .cell {
+			width: 100%;
+			text-align: center;
+			.button {
+				flex-wrap: nowrap;
+				white-space: nowrap;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+}
+
 button,
 .button {
 	display: inline-flex;
@@ -152,7 +167,7 @@ POSTS & CONTENT STYLES
 	}
 
 	.alignleft, img.alignleft { 
-		margin-right: 1.5em; 
+		margin-right: 2.5em; 
 		display: inline; 
 		float: left; 
 	}
@@ -166,6 +181,12 @@ POSTS & CONTENT STYLES
 		margin-left: auto; 
 		display: block; 
 		clear: both; 
+		img {
+			margin-right: auto; 
+			margin-left: auto; 
+			display: block; 
+			clear: both; 
+		}
 	}
 			
 	video, object {

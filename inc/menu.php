@@ -14,7 +14,7 @@ function trailhead_top_nav() {
 	wp_nav_menu(array(
 		'container'			=> false,						// Remove nav container
 		'menu_id'			=> '',					// Adding custom nav id
-		'menu_class'		=> 'main-nav medium-horizontal menu',	// Adding custom nav class
+		'menu_class'		=> 'main-nav medium-horizontal menu show-for-xlarge',	// Adding custom nav class
 		'items_wrap'		=> '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion tablet-dropdown" data-submenu-toggle="true" data-hover-delay="200" data-closing-time="200">%3$s</ul>',
 		'theme_location'	=> 'main-nav',					// Where it's located in the theme
 		'depth'				=> 5,							// Limit the depth of the nav

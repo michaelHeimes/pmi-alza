@@ -45,10 +45,10 @@
 						
 		</div>
 		
-		<div class="top-bar-right cell small-12 medium-auto grid-x flex-dir-column-reverse xlarge-flex-dir-row show-for-large">
+		<div class="top-bar-right cell auto grid-x align-right">
 			<?php trailhead_top_nav();?>
 			<?php if( !empty( $global_phone_number ) || !empty( $global_quote_link ) ) :?>
-				<div class="btns-wrap grid-x grid-padding-x">
+				<div class="btns-wrap grid-x grid-padding-x desktop">
 					<?php get_template_part('template-parts/part', 'global-cta-links',
 						array(
 							'global_phone_number' => $global_phone_number,
@@ -61,7 +61,22 @@
 			<?php endif ;?>
 		</div>
 
-		<div class="cell menu-toggle-wrap grid-x align-right hide-for-large">
+		<div class="cell menu-toggle-wrap grid-x align-right hide-for-xlarge">
+			<div class="top-bar-right cell auto grid-x align-left">
+				<?php trailhead_top_nav();?>
+				<?php if( !empty( $global_phone_number ) || !empty( $global_quote_link ) ) :?>
+					<div class="btns-wrap grid-x grid-padding-x mobile">
+						<?php get_template_part('template-parts/part', 'global-cta-links',
+							array(
+								'global_phone_number' => $global_phone_number,
+								'phone_classes' => 'shrink',
+								'global_quote_link' => $global_quote_link,	
+								'quote_classes' => 'shrink',
+							),
+						);?>
+					</div>
+				<?php endif ;?>
+			</div>
 			<ul class="menu">
 				<li><a id="menu-toggle" data-toggle="off-canvas"><span></span><span></span><span></span></a></li>
 			</ul>

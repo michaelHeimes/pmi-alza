@@ -80,7 +80,7 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
+            "layout": "block",
             "pagination": 0,
             "min": 0,
             "max": 0,
@@ -93,12 +93,12 @@
                     "label": "Style",
                     "name": "style",
                     "aria-label": "",
-                    "type": "radio",
+                    "type": "select",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "33",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
@@ -107,13 +107,14 @@
                         "mint-border": "Mint Border",
                         "mint": "Mint Background"
                     },
-                    "default_value": "",
+                    "default_value": false,
                     "return_format": "value",
+                    "multiple": 0,
                     "allow_null": 0,
-                    "other_choice": 0,
                     "allow_in_bindings": 1,
-                    "layout": "vertical",
-                    "save_other_choice": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
                     "parent_repeater": "field_65344f8cbc85d"
                 },
                 {
@@ -184,5 +185,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730840223
+    "modified": 1731531959
 }

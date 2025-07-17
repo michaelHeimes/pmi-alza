@@ -43,6 +43,17 @@ footer#colophon {
 			@include breakpoint(small down) {
 				justify-content: center;
 			}
+			svg path {
+				transition: all .25s ease;
+			}
+			a:hover svg {
+				> path {
+					stroke: $white;
+				}
+				g path {
+					fill: $white;
+				}
+			}
 		}
 	}
 	.site-info {
