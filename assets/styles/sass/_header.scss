@@ -55,6 +55,12 @@ header.site-header {
 							margin-left: 3.4rem;
 						}
 					}
+					&:hover,
+					&:focus {
+						> a {
+							color: $color-mint;
+						}
+					}
 					a {
 						font-weight: 700;
 						text-transform: uppercase;

@@ -1,9 +1,10 @@
-figure.wp-block-image {
+figure.wp-block-image,
+.wp-block-image {
 	margin-top: 2rem;
 	margin-bottom: 2rem;
 }
 .wp-block-image a {
-	display: block;
+	display: block !important;
 }
 [class^="wp-block-"]:not(.wp-block-image):not(.wp-block-column):not(.wp-block-heading),
 .module.block,
@@ -231,14 +232,16 @@ body.single-post .entry-content {
 }
 
 .wp-block-gallery.has-nested-images {
-	gap: 24px !important;
-
+	--wp--style--gallery-gap-default: 24px !important;
+	justify-content: center;
 	@include breakpoint(tablet) {
-		gap: 38px !important;
+		--wp--style--gallery-gap-default: 38px !important;
 	}
 	> *,
-	figure.wp-block-image:not(#individual-image) {
+	figure.wp-block-image:not(#individual-image),
+	.wp-block-image:not(#individual-image) {
 		aspect-ratio: 1 / 1;
+		flex-grow: 0;
 
 		@media (max-width: 600px) {
 			width: calc(33.333% - 24px) !important;
