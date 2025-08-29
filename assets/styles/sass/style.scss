@@ -1,3 +1,5 @@
+// clamp settings 320-1580
+
 @charset "UTF-8";
 @import "variables";
 
@@ -11,7 +13,7 @@
 $smallGutter: map-get($grid-margin-gutters, "small");
 $mediumGutter: map-get($grid-margin-gutters, "medium");
 
-@import "mixins";
+// @import "mixins";
 @import "vendor/foundation/vendor/normalize";
 @import "vendor/foundation/foundation";
 
@@ -80,12 +82,15 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 # Custom Styles
 --------------------------------------------------------------*/
 @import "global";
+@import "helpers";
 @import "typography";
 @import "header";
 @import "footer";
 @import "forms";
+@import "posts";
 
-// @import "_parts/banner";
+@import "_parts/post-footer-nav";
+@import "_parts/page-banner";
 
 // @import "_modules/page-modules";
 

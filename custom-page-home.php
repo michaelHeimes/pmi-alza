@@ -26,7 +26,7 @@ $group_companies_slides = $fields['group_companies_slides'] ?? null;
 		
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				
-					<?php get_template_part('template-parts/section', 'hero-slider');?>
+					<?php get_template_part('template-parts/part', 'hero-slider');?>
 				
 					<section class="entry-content" itemprop="text">
 						<section class="intro-copy entry-content">
