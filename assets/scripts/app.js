@@ -143,46 +143,74 @@
         });
     }
     
-    _app.media_slider = function() {
-        const mediaSliders = document.querySelectorAll('.media-slider');
-        if( mediaSliders.length < 1 ) return;
-                        
-        mediaSliders.forEach(function (mediaSlider) {
-            
-        const sliderSlides = mediaSlider.querySelectorAll('.swiper-slide');
-        if( sliderSlides.length < 2 ) return;
-            
-        const autoplay = mediaSlider.getAttribute('data-autoplay');
-        const delay = mediaSlider.getAttribute('data-delay');
-        const prevBtn = mediaSlider.querySelector('.swiper-button-prev');
-        const nextBtn = mediaSlider.querySelector('.swiper-button-next');
-        
-        const swiperOptions = {
-            loop: true,
-            slidesPerView: 1,
-            speed: 500,
-            spaceBetween: 0,
-            navigation: {
-                nextEl: nextBtn,
-                prevEl: prevBtn
-            },
-        };
-        
-        // Only add autoplay if autoplay is exactly 1
-        if (autoplay === '1') {
-        
-            swiperOptions.autoplay = {
-                delay: delay + '000',
-                disableOnInteraction: false,
-            };
-        }
-        
-        const swiper = new Swiper(mediaSlider, swiperOptions);
-        
-        });
-    }
+_app.banner_slider = function() {
+        const mediaSliders = document.querySelectorAll('.banner-slider');
+        if (mediaSliders.length < 1) return;
     
-    _app.banner_slider = function() {
+        mediaSliders.forEach(function (mediaSlider) {
+            const sliderSlides = mediaSlider.querySelectorAll('.swiper-slide');
+            if (sliderSlides.length < 2) return;
+    
+            const autoplay = mediaSlider.getAttribute('data-autoplay');
+            const delay = mediaSlider.getAttribute('data-delay');
+            const prevBtn = mediaSlider.querySelector('.swiper-button-prev');
+            const nextBtn = mediaSlider.querySelector('.swiper-button-next');
+    
+            const swiperOptions = {
+                loop: true,
+                slidesPerView: 1,
+                speed: 500,
+                spaceBetween: 0,
+                navigation: {
+                    nextEl: nextBtn,
+                    prevEl: prevBtn
+                },
+                on: {
+                    // When slide transition starts → reset and pause *all* videos
+                    slideChangeTransitionStart: function () {
+                        const videos = mediaSlider.querySelectorAll('video');
+                        videos.forEach(video => {
+                            video.pause();
+                            video.currentTime = 0;
+                        });
+                    },
+                    // When transition ends → play & loop active slide’s video
+                    slideChangeTransitionEnd: function () {
+                        const activeSlide = mediaSlider.querySelector('.swiper-slide-active');
+                        if (!activeSlide) return;
+                        const video = activeSlide.querySelector('video');
+                        if (video) {
+                            video.loop = true;
+                            video.play().catch(err => {
+                                console.warn("Autoplay prevented:", err);
+                            });
+                        }
+                    }
+                }
+            };
+    
+            // Only add autoplay if autoplay is exactly 1
+            if (autoplay === '1') {
+                swiperOptions.autoplay = {
+                    delay: parseInt(delay, 10) * 1000,
+                    disableOnInteraction: false,
+                };
+            }
+    
+            const swiper = new Swiper(mediaSlider, swiperOptions);
+    
+            // Kick off video for the very first active slide
+            const firstActive = mediaSlider.querySelector('.swiper-slide-active video');
+            if (firstActive) {
+                firstActive.loop = true;
+                firstActive.play().catch(err => {
+                    console.warn("Autoplay prevented:", err);
+                });
+            }
+        });
+    };
+    
+    _app.hero_slider = function() {
         const bannerSlider = document.querySelector('.page-banner.hero-slider');
         if(bannerSlider) {
             const delay = bannerSlider.getAttribute('data-delay');
@@ -413,7 +441,7 @@
         
         // Custom Functions
         //_app.mobile_takover_nav();
-        _app.media_slider();
+        _app.hero_slider();
         _app.banner_slider();
         _app.group_slider();
         _app.btn_group_width();

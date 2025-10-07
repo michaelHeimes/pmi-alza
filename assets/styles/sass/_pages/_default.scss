@@ -92,8 +92,37 @@ body.archive {
 		}
 		.bread-wrap {
 			+ .thumb-wrap,
-			+ .media-slider {
+			+ .banner-slider {
 				margin-top: 1rem;
+			}
+		}
+		.wp-block-image {
+			.size-full,
+			.size-large,
+			&.size-full,
+			&.size-large {
+				@media screen and (min-width: 800px) {
+					img {
+						width: 100%;
+						max-width: none;
+					}
+				}	
+			}
+		}
+		.is-type-video.wp-embed-aspect-16-9.wp-has-aspect-ratio {
+			.wp-block-embed__wrapper:before {
+				content: '';
+				display: block;
+				padding-top: 56.25%;
+			}
+			iframe {
+				bottom: 0;
+				height: 100%;
+				left: 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 100%;
 			}
 		}
 		ul:not(.tabs):not(.accordion):not(.nav-links):not(.menu),

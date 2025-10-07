@@ -1,11 +1,15 @@
 <?php 
-$media_slider_autoplay = $args['media_slider_autoplay'] ?? null;
-$media_slider_transition_delay = $args['media_slider_transition_delay'] ?? null;
-$media_slides = $args['media_slides'] ?? null;
+$banner_slider_autoplay = $args['banner_slider_autoplay'] ?? null;
+if($banner_slider_autoplay) {
+	$banner_slider_transition_delay = $args['banner_slider_transition_delay'] ?? null;
+} else {
+	$banner_slider_transition_delay = null;
+}
+$banner_slides = $args['banner_slides'] ?? null;
 ?>
-<div class="media-slider overflow-hidden relative" data-autoplay="<?=esc_attr($media_slider_autoplay);?>" data-delay="<?= esc_attr( $media_slider_transition_delay );?>">
+<div class="banner-slider overflow-hidden relative" data-autoplay="<?=esc_attr($banner_slider_autoplay);?>" data-delay="<?= esc_attr( $banner_slider_transition_delay );?>">
 	<div class="swiper-wrapper">
-		<?php foreach($media_slides as $slide):
+		<?php foreach($banner_slides as $slide):
 			$type = $slide['media_type'];
 			$poster_url = '';	
 		?>
@@ -15,46 +19,21 @@ $media_slides = $args['media_slides'] ?? null;
 					echo wp_get_attachment_image( $slide['image']['id'], 'full', false, [ 'class' => '' ] );
 					echo '</div>';
 				}?>
-				<?php if( $type == 'video' && !empty( $slide['video'] ) ):
-				?>
-					<div class="video-wrap responsive-embed widescreen">
-						<?php
-							$iframe = $slide['video'];
-						
-							// Use preg_match to find iframe src.
-							preg_match('/src="(.+?)"/', $iframe, $matches);
-							$src = $matches[1];
-						
-							// Add extra parameters to src and replace HTML.
-							$params = array(
-								'autoplay'    => 0,
-								'muted'       => 0,
-								'loop'        => 0,
-								'background'  => 0,
-								'controls'    => 1,
-								'title'       => 0,
-								'byline'      => 0,
-								'portrait'    => 0,
-								'playsinline' => 1,
-								'dnt'         => 1,
-								'responsive'  => 1,
-							);
-							$new_src = add_query_arg($params, $src);
-							$iframe = str_replace($src, $new_src, $iframe);
-						
-							// Add extra attributes to iframe HTML.
-							$attributes = 'frameborder="0"';
-							$iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
-						
-							// Display customized HTML.
-							echo $iframe;
-						?>
+				<?php if( $type == 'video' && !empty( $slide['video'] ) ):?>
+					<div class="video-wrap">
+						<video playsinline loop>
+						  <source src="<?=esc_url($slide['video']['url']);?>" type="video/mp4" />
+						  <p>
+							Your browser doesn't support HTML video. Here is a
+							<a href="<?=esc_url($slide['video']['url']);?>" download="<?=esc_url($slide['video']['url']);?>">link to the video</a> instead.
+						  </p>
+						</video>	
 					</div>
 				<?php endif;?>
 			</div>
 		<?php endforeach;?>
 	</div>
-	<?php if( count($media_slides) > 1 ):?>
+	<?php if( count($banner_slides) > 1 ):?>
 		<div class="swiper-btn swiper-button-prev">
 			<svg xmlns="http://www.w3.org/2000/svg" width="90.688" height="90.688" viewBox="0 0 90.688 90.688"><defs><filter id="a" x="0" y="0" width="90.688" height="90.688" filterUnits="userSpaceOnUse"><feOffset dy="2"/><feGaussianBlur stdDeviation="2.5" result="blur"/><feFlood flood-opacity=".835"/><feComposite operator="in" in2="blur"/><feComposite in="SourceGraphic"/></filter></defs><g data-name="Group 382"><g transform="translate(0 -.002)" filter="url(#a)"><circle data-name="ic_brightness_1_24px" cx="27.463" cy="27.463" transform="rotate(-31.8 64.167 4.01)" fill="#4B9B8F" r="27.463"/></g><path d="M53.584 30.739 41.005 43.345l12.579 12.606-3.873 3.872-16.478-16.478 16.478-16.478Z" fill="#fff"/></g></svg>
 		</div>

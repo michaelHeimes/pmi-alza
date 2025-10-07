@@ -7,9 +7,9 @@
  * @package trailhead
  */
  
- $media_slider_autoplay = get_field('media_slider_autoplay') ?? null;
- $media_slider_transition_delay = get_field('media_slider_transition_delay') ?? null;
- $media_slides = get_field('media_slides') ?? null;
+ $banner_slider_autoplay = get_field('banner_slider_autoplay') ?? null;
+ $banner_slider_transition_delay = get_field('banner_slider_transition_delay') ?? null;
+ $banner_slides = get_field('banner_slides') ?? null;
  $post_content = get_post_field( 'post_content') ?? null;
 get_header();
 ?>
@@ -22,15 +22,15 @@ get_header();
         while ( have_posts() ) :
             the_post();?>
             <div class="entry-content relative">
-                <?php if( $media_slides ):?>
+                <?php if( $banner_slides ):?>
                     <div class="grid-container">
                         <div class="grid-x grid-padding-x align-center">
                             <div class="cell small-12 tablet-11 large-10">
-                                <?php get_template_part('template-parts/part', 'media-slider',
+                                <?php get_template_part('template-parts/part', 'banner-slider',
                                         array(
-                                            'media_slider_autoplay' => $media_slider_autoplay,
-                                            'media_slider_transition_delay' => $media_slider_transition_delay,
-                                            'media_slides' => $media_slides,
+                                            'banner_slider_autoplay' => $banner_slider_autoplay,
+                                            'banner_slider_transition_delay' => $banner_slider_transition_delay,
+                                            'banner_slides' => $banner_slides,
                                         ),
                                 );?>
                             </div>
@@ -40,6 +40,8 @@ get_header();
                 <div class="grid-container">
                     <div class="grid-x grid-padding-x align-center">
                         <div class="cell small-12 tablet-11 large-10 xlarge-8">
+                            <h1><?php the_title();?></h1>
+                            
                             <?php the_content();?>
                             
                             <footer class="entry-footer">
@@ -70,7 +72,10 @@ get_header();
                     </div>
                 </div>
             </div>
-            <?php get_template_part('template-parts/part', 'blog-footer-nav');
+            
+            <hr class="gradient relative">
+            
+            <?php get_template_part('template-parts/section', 'footer-cta');
     
         endwhile; // End of the loop.
         ?>

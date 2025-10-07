@@ -67,21 +67,35 @@
 
 }
 
-.media-slider {
+.banner-slider {
 	position: relative;
+	.video-wrap,
 	.img-wrap {
-		> img {
+		position: relative;
+		overflow: hidden;
+		padding-top: 56.25%;
+		> img,
+		> video {
+			position: absolute;
+			top: 0;
+			left: 0;
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			object-position: center;
 		}
 	}
 	.swiper-btn {
-		width: 76px;
+		width: 50px;
 		height: auto;
-		transform: translateY( calc(-50% + 4px) );
+		margin: 0;
+		top: 50%;
+		transform: translateY(-50%);
 		&:after {
 			content: '';
+		}
+		@include breakpoint(medium) {
+			width: 76px;
 		}
 	}
 }

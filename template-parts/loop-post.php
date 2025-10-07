@@ -7,6 +7,12 @@
  * @package trailhead
  */
 $excerpt = get_the_excerpt();
+$trimmed_excerpt = wp_trim_words(
+	$excerpt,
+	44,
+	' <span class="ellipsis">...</span>'
+);
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('post-row'); ?>>
@@ -27,7 +33,7 @@ $excerpt = get_the_excerpt();
 				<?php if( $excerpt ):?>
 					<section class="excerpt">
 						<p>
-							<?=wp_kses_post( wp_trim_words($excerpt, 44) );?>
+							<?=wp_kses_post( $trimmed_excerpt ) ;?>
 						</p>
 					</section>
 				<?php endif;?>

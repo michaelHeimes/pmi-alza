@@ -5,15 +5,15 @@ $post_content = '';
 
 if( is_home() ) {
 	$page_id = get_option('page_for_posts');
-	$media_slider_autoplay = get_field('media_slider_autoplay', $page_id) ?? null;
-	$media_slider_transition_delay = get_field('media_slider_transition_delay', $page_id) ?? null;
-	$media_slides = get_field('media_slides', $page_id) ?? null;
+	$banner_slider_autoplay = get_field('banner_slider_autoplay', $page_id) ?? null;
+	$banner_slider_transition_delay = get_field('banner_slider_transition_delay', $page_id) ?? null;
+	$banner_slides = get_field('banner_slides', $page_id) ?? null;
 	$post_content = get_post_field( 'post_content', $page_id ) ?? null;
 } else {
 	$page_id = get_queried_object() ?? null;
-	$media_slider_autoplay = get_field('media_slider_autoplay', $page_id) ?? null;
-	$media_slider_transition_delay = get_field('media_slider_transition_delay', $page_id) ?? null;
-	$media_slides = get_field('media_slides', $page_id) ?? null;
+	$banner_slider_autoplay = get_field('banner_slider_autoplay', $page_id) ?? null;
+	$banner_slider_transition_delay = get_field('banner_slider_transition_delay', $page_id) ?? null;
+	$banner_slides = get_field('banner_slides', $page_id) ?? null;
 	$title = get_the_archive_title();	
 	$term_desc = $page_id->category_description ?? null;
 	if( $term_desc ) {
@@ -38,12 +38,12 @@ if( is_home() ) {
 			<div class="grid-container">
 				<div class="grid-x grid-padding-x align-center">
 					<div class="cell small-12 tablet-11 large-10">
-						<?php if( $media_slides ) {
-							get_template_part('template-parts/part', 'media-slider',
+						<?php if( $banner_slides ) {
+							get_template_part('template-parts/part', 'banner-slider',
 								array(
-									'media_slider_autoplay' => $media_slider_autoplay,
-									'media_slider_transition_delay' => $media_slider_transition_delay,
-									'media_slides' => $media_slides,
+									'banner_slider_autoplay' => $banner_slider_autoplay,
+									'banner_slider_transition_delay' => $banner_slider_transition_delay,
+									'banner_slides' => $banner_slides,
 								),
 							);
 						}?>
@@ -83,7 +83,7 @@ if( is_home() ) {
 							echo '</div>';
 							
 							echo '<div class="grid-x grid-padding-x align-center">';
-								echo '<div class="inner cell small-12 medium-10 tablet-4 relative font-header uppercase">';
+								echo '<div class="inner cell small-12 relative font-header uppercase">';
 									trailhead_page_navi();
 								echo '</div>';
 							echo '</div>';
@@ -104,5 +104,10 @@ if( is_home() ) {
 					</div>
 				</div>
 			</div>
+			
+			<hr class="gradient relative">
+			
+			<?php get_template_part('template-parts/section', 'footer-cta');?>
+			
 		</div>
 	</main><!-- #main -->

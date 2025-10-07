@@ -1,11 +1,11 @@
 {
     "key": "group_68af19aa37d08",
-    "title": "Media Slider",
+    "title": "Banner Slider",
     "fields": [
         {
             "key": "field_68af724aa4315",
-            "label": "Media Slider",
-            "name": "clone-media_slider",
+            "label": "Banner Slider",
+            "name": "clone-banner_slider",
             "aria-label": "",
             "type": "clone",
             "instructions": "",
@@ -50,5 +50,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1756402614
+    "modified": 1757011760
 }

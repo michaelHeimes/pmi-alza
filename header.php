@@ -44,10 +44,12 @@
 						font-family: 'Roboto', sans-serif;
 						font-weight: 700;
 						padding: .5em 0 0;
-						margin-left: 25px;
 						text-align: center;
 						transition: color .25s ease;
 						margin-bottom: -1px;
+					}
+					.alza-group-nav  .cell.shrink:not(:first-child) .agv-link {
+						margin-left: 25px;
 					}
 					.alza-group-nav .agv-link span.title {
 						padding: 0.3em 0;
