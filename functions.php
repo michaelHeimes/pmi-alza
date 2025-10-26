@@ -169,6 +169,18 @@ function trailhead_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'trailhead_scripts' );
 
+
+function mytheme_extend_gutenberg_columns() {
+	wp_enqueue_script(
+		'mytheme-gutenberg-columns',
+		get_template_directory_uri() . '/assets/scripts/gutenberg/gutenberg-columns.js',
+		array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post', 'wp-hooks', 'wp-components', 'wp-element' ),
+		false,
+		true
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'mytheme_extend_gutenberg_columns' );
+
 // Disable Tabelpress Stylesheet
 // add_filter( 'tablepress_use_default_css', '__return_false' );
 
@@ -260,3 +272,6 @@ require_once(get_template_directory().'/inc/image-sizes.php');
 
 // Breadcrumbs
 require_once(get_template_directory().'/inc/breadcrumbs.php');
+
+// Gutenberg Block Customizations
+require_once(get_template_directory().'/inc/gutenberg.php');

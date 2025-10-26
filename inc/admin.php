@@ -116,3 +116,7 @@ add_filter('admin_footer_text', 'trailhead_custom_admin_footer');
 		}
 	}
 	add_action('manage_media-gallery-item_posts_custom_column', 'custom_media_gallery_item_column_content', 10, 2);
+	
+	
+	// enable Gutenberg block line height 
+	add_theme_support( 'custom-line-height' );

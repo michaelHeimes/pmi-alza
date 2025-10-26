@@ -40,19 +40,20 @@ header.site-header {
 			}
 			> .grid-x {
 				justify-content: center;
-				@include breakpoint(tablet) {
+				@media screen and (min-width: $nav-breakpoint) {
 					justify-content: flex-end;
 				}
 			}
 			.main-nav {
-				@include breakpoint(large down) {
-					margin-top: 1rem;
+				display: none;
+				@media screen and (min-width: $nav-breakpoint) {
+					display: flex;
 				}
 				> li {
 					&:not(:first-child) {
 						margin-left: 1rem;
-						@include breakpoint(large) {
-							margin-left: 3.4rem;
+						@media screen and (min-width: $nav-breakpoint) {
+							margin-left: 2.6rem;
 						}
 					}
 					&:hover,
@@ -95,7 +96,15 @@ header.site-header {
 				}
 			}
 			.btns-wrap {
-				justify-content: center;
+				justify-content: flex-start;
+				.button.has-icon.no-border {
+					padding-right: 1.6875rem;
+					padding-left: 0;
+					@media (min-width: $nav-breakpoint) {
+						padding-left: 1.6875rem;
+						margin-left: 1.3rem;
+					}
+				}
 				@include breakpoint(tablet) {
 					justify-content: flex-end;
 				}
@@ -180,6 +189,9 @@ header.site-header {
 		    width: auto;
 		    // flex: 1;
 			flex: 0 0 auto;
+			@media (min-width: $nav-breakpoint) {
+				display: none;
+			}
 			@media (max-width: 767px) {
 				width: 100%;
 				align-items: center;
@@ -189,35 +201,39 @@ header.site-header {
 			}
 		    a#menu-toggle {
 			    padding: 0;
-			    width: 46px;
-			    height: 42px;
+			    width: 47px;
+			    height: 47px;
+				margin-left: 1.1rem;
 			    position: relative;
-			    
+				border: 2px solid $color-mint;
+			    border-radius: 5px;
+				transition: border-color .3s ease;
+				
 			    span {
 				    position: absolute;
-				    left: 0;
+				    left: 7px;
 				    right: 0;
-				    width: 46px;
-				    height: 4px;
+				    width: 30px;
+				    height: 3px;
 				    background-color: $color-mint;
-					border-radius: 4px;
 					transition: all .3s ease;
 				    
 				    &:nth-child(1) {
-					    top: 0;
+					    top: 10px;
 				    }
 
 				    &:nth-child(2) {
-					    top: 19px;
+					    top: 20px;
 				    }
 				    
 				    &:nth-child(3) {
-					    bottom: 0;
+					    bottom: 10px;
 				    }
 			    }
 
 				&:hover,
 				&:focus {
+					border: 2px solid $white;
 					span {
 						background-color: $white;
 					}

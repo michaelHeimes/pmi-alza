@@ -61,7 +61,7 @@
 			<?php endif ;?>
 		</div>
 
-		<div class="cell menu-toggle-wrap grid-x align-right hide-for-xlarge">
+		<div class="cell menu-toggle-wrap grid-x align-right">
 			<div class="top-bar-right cell auto grid-x align-left">
 				<?php trailhead_top_nav();?>
 				<?php if( !empty( $global_phone_number ) || !empty( $global_quote_link ) ) :?>
