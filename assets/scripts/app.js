@@ -29,12 +29,12 @@
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.abide.js
 
 // Tabs UI
-//@*prepros-prepend vendor/foundation/js/plugins/foundation.tabs.js
+//@prepros-prepend vendor/foundation/js/plugins/foundation.tabs.js
 
-// Accordian
+// Accordion
 //@prepros-prepend vendor/foundation/js/plugins/foundation.accordion.js
 //@prepros-prepend vendor/foundation/js/plugins/foundation.accordionMenu.js
-//@*prepros-prepend vendor/foundation/js/plugins/foundation.responsiveAccordionTabs.js
+//@prepros-prepend vendor/foundation/js/plugins/foundation.responsiveAccordionTabs.js
 
 // Menu enhancements
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.drilldown.js

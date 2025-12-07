@@ -122,17 +122,19 @@ button,
 	}
 }
 
-.swiper-pagination-bullet {
-	height: 7px;
-	width: 31px;
-	opacity: 1;
-	border-radius: 9px;
-	background-color: $color-mint;
-	margin: 15px !important;
-	&:hover,
-	&.swiper-pagination-bullet-active {
-		background-color: $white;
-	}
+.swiper-pagination:not(.testimonial) {
+	.swiper-pagination-bullet {
+		height: 7px;
+		width: 31px;
+		opacity: 1;
+		border-radius: 9px;
+		background-color: $color-mint;
+		margin: 15px !important;
+		&:hover,
+		&.swiper-pagination-bullet-active {
+			background-color: $white;
+		}
+	}	
 }
 
 .upperclass {

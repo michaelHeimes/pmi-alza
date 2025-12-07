@@ -6207,6 +6207,92 @@ table.hover:not(.unstriped) tr:nth-of-type(even):hover {
   padding-bottom: 56.25%;
 }
 
+.tabs {
+  margin: 0;
+  border: 1px solid #555555;
+  background: #000;
+  list-style-type: none;
+}
+.tabs::before, .tabs::after {
+  display: table;
+  content: " ";
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+.tabs::after {
+  clear: both;
+}
+
+.tabs.vertical > li {
+  display: block;
+  float: none;
+  width: auto;
+}
+
+.tabs.simple > li > a {
+  padding: 0;
+}
+.tabs.simple > li > a:hover {
+  background: transparent;
+}
+
+.tabs.primary {
+  background: #1B9E8F;
+}
+.tabs.primary > li > a {
+  color: #000;
+}
+.tabs.primary > li > a:hover, .tabs.primary > li > a:focus {
+  background: #1dac9c;
+}
+
+.tabs-title {
+  float: left;
+}
+.tabs-title > a {
+  display: block;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.75rem;
+  line-height: 1;
+  color: #1B9E8F;
+}
+[data-whatinput=mouse] .tabs-title > a {
+  outline: 0;
+}
+.tabs-title > a:hover {
+  background: #000;
+  color: #17887b;
+}
+.tabs-title > a:focus, .tabs-title > a[aria-selected=true] {
+  background: #000;
+  color: #1B9E8F;
+}
+
+.tabs-content {
+  border: 1px solid #555555;
+  border-top: 0;
+  background: #000;
+  color: #F2F0F0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.tabs-content.vertical {
+  border: 1px solid #555555;
+  border-left: 0;
+}
+
+.tabs-panel {
+  display: none;
+  padding: 1rem;
+}
+.tabs-panel.is-active {
+  display: block;
+}
+
 .menu {
   padding: 0;
   margin: 0;
@@ -9740,7 +9826,7 @@ button.no-bg:hover svg path,
   fill: #fff;
 }
 
-.swiper-pagination-bullet {
+.swiper-pagination:not(.testimonial) .swiper-pagination-bullet {
   height: 7px;
   width: 31px;
   opacity: 1;
@@ -9748,7 +9834,7 @@ button.no-bg:hover svg path,
   background-color: #1B9E8F;
   margin: 15px !important;
 }
-.swiper-pagination-bullet:hover, .swiper-pagination-bullet.swiper-pagination-bullet-active {
+.swiper-pagination:not(.testimonial) .swiper-pagination-bullet:hover, .swiper-pagination:not(.testimonial) .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #fff;
 }
 
