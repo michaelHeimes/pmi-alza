@@ -6254,7 +6254,7 @@ table.hover:not(.unstriped) tr:nth-of-type(even):hover {
 }
 .tabs-title > a {
   display: block;
-  padding: 1.25rem 1.5rem;
+  padding: 1.25rem 2.5rem;
   font-size: 0.75rem;
   line-height: 1;
   color: #1B9E8F;
@@ -11407,6 +11407,81 @@ body.archive .entry-content .post-footer-nav li.va-wrap a:hover svg path {
   .banner-slider .swiper-btn {
     width: 76px;
   }
+}
+
+.careers-block ul.accordion > li > a > .grid-x, .careers-block ul.accordion > li > a > .nav-links {
+  gap: 1.25rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.careers-block ul.tabs {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+.careers-block ul.tabs li {
+  position: relative;
+}
+.careers-block ul.tabs li a {
+  font-size: clamp(1.063rem, 0.951rem + 0.556vw, 1.5rem);
+}
+.careers-block ul.tabs li a > .grid-x, .careers-block ul.tabs li a > .nav-links {
+  gap: 1.2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.careers-block ul.tabs li.is-active a {
+  border-top: 1px solid #555555;
+  border-left: 1px solid #555555;
+  border-right: 1px solid #555555;
+}
+.careers-block ul.tabs li.is-active a:after {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: calc(100% + 0px);
+  display: block;
+  width: calc(100% - 2px);
+  height: 2px;
+  background-color: #000;
+}
+.careers-block .tabs-content {
+  padding: 20px 51px 0;
+}
+.careers-block .tabs-content .tabs-panel {
+  padding: 0;
+}
+.careers-block .careers-block-job-grid .careers-block-job-info-top {
+  font-size: clamp(1.125rem, 1.077rem + 0.238vw, 1.313rem);
+}
+.careers-block .careers-block-job-grid hr {
+  margin: 8px 0 21px;
+}
+.careers-block .careers-block-job-grid .pipe span {
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: #fff;
+}
+.careers-block .careers-block-job-grid .careers-block-job {
+  margin: 39px 0;
+}
+@media print, screen and (min-width: 56.25em) {
+  .careers-block .careers-block-job-grid .careers-block-job {
+    max-width: 420px;
+  }
+}
+.careers-block .careers-block-job-grid .careers-block-job .icon-wrap {
+  padding-right: 0.3rem;
+}
+.careers-block .careers-block-job-grid .careers-block-job .icon {
+  width: 60%;
 }
 
 .page-template-custom-page-home .page-banner {

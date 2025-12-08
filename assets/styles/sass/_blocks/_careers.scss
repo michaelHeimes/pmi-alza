@@ -1,0 +1,71 @@
+.careers-block {
+	ul.accordion > li > a > .grid-x {
+		gap: 1.25rem;
+		align-items: center;
+	}
+	ul.tabs {
+		border-top: 0;
+		border-left: 0;
+		border-right: 0;
+		li {
+			position: relative;
+			a {
+				font-size: clamp(1.063rem, 0.951rem + 0.556vw, 1.5rem);
+				> .grid-x {
+					gap: 1.2rem;
+					align-items: center;
+					flex-direction: column;
+				}
+			}
+			&.is-active {
+				a {
+					border-top: 1px solid #555555;
+					border-left: 1px solid #555555;
+					border-right: 1px solid #555555;
+					&:after {
+						content: '';
+						position: absolute;
+						left: 1px;
+						top: calc(100% + 0px);
+						display: block;
+						width: calc(100% - 2px);
+						height: 2px;
+						background-color: #000;
+					}
+				}
+			}
+		}
+	}
+	.tabs-content {
+		padding: 20px 51px 0;
+		.tabs-panel {
+			padding: 0;
+		}
+	}
+	.careers-block-job-grid  {
+		.careers-block-job-info-top {
+			font-size: clamp(1.125rem, 1.077rem + 0.238vw, 1.313rem);
+		}
+		hr {
+			margin: 8px 0 21px;
+		}
+		.pipe span {
+			display: block;
+			width: 1px;
+			height: 100%;
+			background: $white;
+		}
+		.careers-block-job {
+			margin: 39px 0;
+			@include breakpoint(tablet) {
+				max-width: 420px;
+			} 
+			.icon-wrap {
+				padding-right: .3rem;
+			}
+			.icon {
+				width: 60%;
+			}
+		}
+	}
+}
