@@ -2,7 +2,7 @@
 $alignment = $args['alignment'] ?? null;
 $button_links = $args['button_links'] ?? null;
 ?>	
-<div class="btns-group grid-x grid-padding-x <?= esc_attr( $alignment );?>">
+<div class="btns-group grid-x grid-padding-x <?= esc_attr( $alignment );?>" data-smooth-scroll data-offset="40">
 	<?php foreach($button_links as $button_link):
 		$style = $button_link['style'] ?? null;
 		$add_phone_icon = $button_link['add_phone_icon'] ?? null;

@@ -1,0 +1,36 @@
+.image-slider-left-copy-right {
+	.overflow-hidden {
+		overflow: hidden;
+		border: 1px solid $color-mint;
+		border-radius: 6px;
+		
+	}
+	.swiper-pagination {
+		position: absolute;
+		bottom: 20px;
+		padding: 40px 40px 0;
+		display: flex;
+		justify-content: flex-end;
+		gap: 21px;
+		.swiper-pagination-bullet {
+			width: 18px;
+			height: 18px;
+			border: 2px solid $white;
+			background: transparent;
+			opacity: 1;
+			margin: 0;
+			transition: border-width .3s ease, border-color .3s ease;
+			filter: drop-shadow(2px 1px 2px #000000D6);
+		}
+		
+		.swiper-pagination-bullet-active,
+		.swiper-pagination-bullet:hover {
+			border: 4px solid $color-mint;
+			background: transparent;
+		}
+		
+		.testimonial-name {
+			color: $color-mint;
+		}
+	}
+}

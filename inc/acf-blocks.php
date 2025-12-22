@@ -68,11 +68,25 @@ function register_acf_block_types() {
         ));
         
         acf_register_block_type(array(
+            'name'              => 'image_slider_left_copy_right',
+            'title'             => __('Image Slider Left, Copy Right'),
+            'description'       => __('Image Slider Left, Copy Right'),
+            'render_template'   => 'template-parts/blocks/image-slider-left-copy-right.php',
+            'category'          => 'formatting',
+            'mode' => 'edit',
+        ));
+        
+        acf_register_block_type(array(
             'name'              => 'careers_block',
             'title'             => __('Careers Block'),
             'description'       => __('Careers Block'),
             'render_template'   => 'template-parts/blocks/careers-block.php',
             'category'          => 'formatting',
+            'supports'          => array(
+                'anchor'            => true,
+                'customClassName'   => true,
+                'className'         => true,
+            ),
         ));
  
     }

@@ -40,6 +40,12 @@ svg {
 	}
 }
 
+.wp-block-image.mint-border-img > img {
+	border: 1px solid $color-mint;
+	border-radius: 6px;
+	overflow: hidden;
+}
+
 div#crumbs {
 	margin-bottom: 0px;
 	display: inline-flex;
@@ -122,7 +128,7 @@ button,
 	}
 }
 
-.swiper-pagination:not(.testimonial) {
+.swiper-pagination:not(.testimonial):not(.image-slider) {
 	.swiper-pagination-bullet {
 		height: 7px;
 		width: 31px;

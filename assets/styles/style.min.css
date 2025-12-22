@@ -9722,6 +9722,12 @@ svg {
      object-fit: cover;
 }
 
+.wp-block-image.mint-border-img > img {
+  border: 1px solid #1B9E8F;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
 div#crumbs {
   margin-bottom: 0px;
   display: -webkit-inline-box;
@@ -9826,7 +9832,7 @@ button.no-bg:hover svg path,
   fill: #fff;
 }
 
-.swiper-pagination:not(.testimonial) .swiper-pagination-bullet {
+.swiper-pagination:not(.testimonial):not(.image-slider) .swiper-pagination-bullet {
   height: 7px;
   width: 31px;
   opacity: 1;
@@ -9834,7 +9840,7 @@ button.no-bg:hover svg path,
   background-color: #1B9E8F;
   margin: 15px !important;
 }
-.swiper-pagination:not(.testimonial) .swiper-pagination-bullet:hover, .swiper-pagination:not(.testimonial) .swiper-pagination-bullet.swiper-pagination-bullet-active {
+.swiper-pagination:not(.testimonial):not(.image-slider) .swiper-pagination-bullet:hover, .swiper-pagination:not(.testimonial):not(.image-slider) .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #fff;
 }
 
@@ -11482,6 +11488,44 @@ body.archive .entry-content .post-footer-nav li.va-wrap a:hover svg path {
 }
 .careers-block .careers-block-job-grid .careers-block-job .icon {
   width: 60%;
+}
+
+.image-slider-left-copy-right .overflow-hidden {
+  overflow: hidden;
+  border: 1px solid #1B9E8F;
+  border-radius: 6px;
+}
+.image-slider-left-copy-right .swiper-pagination {
+  position: absolute;
+  bottom: 20px;
+  padding: 40px 40px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 21px;
+}
+.image-slider-left-copy-right .swiper-pagination .swiper-pagination-bullet {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #fff;
+  background: transparent;
+  opacity: 1;
+  margin: 0;
+  -webkit-transition: border-width 0.3s ease, border-color 0.3s ease;
+  transition: border-width 0.3s ease, border-color 0.3s ease;
+  -webkit-filter: drop-shadow(2px 1px 2px rgba(0, 0, 0, 0.8392156863));
+          filter: drop-shadow(2px 1px 2px rgba(0, 0, 0, 0.8392156863));
+}
+.image-slider-left-copy-right .swiper-pagination .swiper-pagination-bullet-active,
+.image-slider-left-copy-right .swiper-pagination .swiper-pagination-bullet:hover {
+  border: 4px solid #1B9E8F;
+  background: transparent;
+}
+.image-slider-left-copy-right .swiper-pagination .testimonial-name {
+  color: #1B9E8F;
 }
 
 .page-template-custom-page-home .page-banner {

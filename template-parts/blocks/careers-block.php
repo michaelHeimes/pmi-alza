@@ -1,9 +1,21 @@
-<?php if ( have_rows('careers_block') ) : 
+<?php 
+
+$id = $block['id'] ?? 'careers-block';
+if( !empty($block['anchor']) ) {
+	$id = $block['anchor'];
+}
+
+$class = 'careers-block';
+if( !empty($block['className']) ) {
+	$class .= ' ' . $block['className'];
+}
+
+if ( have_rows('careers_block') ) : 
 	$job_link_text = get_field('job_link_text') ?? null;	
 	$apply_link_text = get_field('apply_link_text') ?? null;	
 ?>
 
-<div class="careers-block">
+<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($class); ?>">
 
 	<ul class="accordion" data-responsive-accordion-tabs="accordion medium-tabs">
 
