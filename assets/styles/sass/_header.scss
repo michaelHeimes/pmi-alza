@@ -8,6 +8,12 @@ header.site-header {
 	@include breakpoint(xlarge) {
 		padding: rem-calc(40) 0;
 	}
+	@include breakpoint(large) {
+		.top-bar-wrap {
+			padding-left: 3rem;
+			padding-right: 3rem;
+		}
+	}
 	#top-bar-menu {
 		
 		li.logo {
@@ -186,8 +192,8 @@ header.site-header {
 		}
 		
 		.menu-toggle-wrap {
-		    width: auto;
-		    // flex: 1;
+			width: auto;
+			// flex: 1;
 			flex: 0 0 auto;
 			@media (min-width: $nav-breakpoint) {
 				display: none;
@@ -199,37 +205,37 @@ header.site-header {
 			.button {
 				margin: 0;
 			}
-		    a#menu-toggle {
-			    padding: 0;
-			    width: 47px;
-			    height: 47px;
+			a#menu-toggle {
+				padding: 0;
+				width: 47px;
+				height: 47px;
 				margin-left: 1.1rem;
-			    position: relative;
+				position: relative;
 				border: 2px solid $color-mint;
-			    border-radius: 5px;
+				border-radius: 5px;
 				transition: border-color .3s ease;
 				
-			    span {
-				    position: absolute;
-				    left: 7px;
-				    right: 0;
-				    width: 30px;
-				    height: 3px;
-				    background-color: $color-mint;
+				span {
+					position: absolute;
+					left: 7px;
+					right: 0;
+					width: 30px;
+					height: 3px;
+					background-color: $color-mint;
 					transition: all .3s ease;
-				    
-				    &:nth-child(1) {
-					    top: 10px;
-				    }
+					
+					&:nth-child(1) {
+						top: 10px;
+					}
 
-				    &:nth-child(2) {
-					    top: 20px;
-				    }
-				    
-				    &:nth-child(3) {
-					    bottom: 10px;
-				    }
-			    }
+					&:nth-child(2) {
+						top: 20px;
+					}
+					
+					&:nth-child(3) {
+						bottom: 10px;
+					}
+				}
 
 				&:hover,
 				&:focus {
@@ -239,8 +245,8 @@ header.site-header {
 					}
 				}
 
-		    }
-		    
+			}
+			
 		}
 	
 	}
@@ -325,5 +331,11 @@ header.site-header {
 				margin-bottom: 38px;
 			}
 		}
+	}
+}
+@include breakpoint(large) {
+	.alza-group-nav {
+		padding-left: 2rem;
+		padding-right: 2rem;
 	}
 }

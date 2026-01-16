@@ -10452,6 +10452,12 @@ header.site-header {
     padding: 2.5rem 0;
   }
 }
+@media print, screen and (min-width: 64em) {
+  header.site-header .top-bar-wrap {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
 header.site-header #top-bar-menu li.logo {
   max-width: 200px;
 }
@@ -10772,6 +10778,12 @@ header.site-header #top-bar-menu .menu-toggle-wrap a#menu-toggle:hover span, hea
   margin-bottom: 38px;
 }
 
+@media print, screen and (min-width: 64em) {
+  .alza-group-nav {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
 .footer-cta {
   padding-top: 4.55rem;
   padding-top: clamp(4.55rem, 4.055rem + 2.476vw, 6.5rem);
