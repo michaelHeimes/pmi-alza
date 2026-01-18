@@ -114,6 +114,28 @@
                     "parent_repeater": "field_63f582e54e8de"
                 },
                 {
+                    "key": "field_696d0d45bbae6",
+                    "label": "No Jobs Message",
+                    "name": "no_jobs_message",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "allow_in_bindings": 0,
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0,
+                    "parent_repeater": "field_63f582e54e8de"
+                },
+                {
                     "key": "field_63f59b3b60d27",
                     "label": "Jobs",
                     "name": "jobs",
@@ -213,6 +235,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "display_title": "",
-    "modified": 1765211529
+    "modified": 1768755440
 }
