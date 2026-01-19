@@ -12,6 +12,7 @@ $global_address = get_field('global_address', 'option') ?? null;
 $global_telephone_number = get_field('global_telephone_number', 'option') ?? null;
 $global_email_address = get_field('global_email_address', 'option') ?? null;
 $logo = get_field('footer_logo', 'option');
+$footer_social_media_links = get_field('footer_social_media_links', 'option') ?? null;
 $copyright_text = get_field('footer_copyright_text', 'option') ?? null;
 $subfooter_links = get_field('footer_subfooter_links', 'option') ?? null;
 ?>
@@ -51,11 +52,37 @@ $subfooter_links = get_field('footer_subfooter_links', 'option') ?? null;
 										<?php endif;?>
 									</div>
 								<?php endif;?>
-								<?php if ( has_nav_menu( 'social-links' ) ) :?>
+								<?php if($footer_social_media_links):?>
 									<div class="footer-col cell small-12 medium-shrink">
-										<?php trailhead_social_links();?>
+										<ul class="social links menu align-middle">
+											<?php foreach($footer_social_media_links as $footer_social_media_link):
+												$link = $footer_social_media_link['link'] ?? null;
+												$icon = $footer_social_media_link['icon'] ?? null;
+												if($link):
+													$link_url = $link['url'];
+													$link_title = $link['title'];
+													$link_target = $link['target'] ? $link['target'] : '_self';
+											?>
+												<li>
+													<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+														<?php if($icon):?>
+															<span class="icon" aria-hidden="true">
+																<?=wp_get_attachment_image( $icon['id'], 'full', array ('class' => 'style-svg' ) );?>
+															</span>
+															<span class="show-for-sr">
+																<?php echo esc_html( $link_title ); ?>
+															</span>
+														<?php else:?>
+															<?php echo esc_html( $link_title ); ?>
+														<?php endif;?>
+													</a>
+													
+												</li>
+											<?php endif; endforeach;?>
+										</ul>
 									</div>
 								<?php endif;?>
+								
 							</div>
 						</div>
 					</div>

@@ -58,7 +58,9 @@
 		.careers-block-job {
 			margin: 39px 0;
 			@include breakpoint(tablet) {
-				max-width: 420px;
+				&:not(.no-jobs) {
+					max-width: 420px;
+				}
 			} 
 			.icon-wrap {
 				padding-right: .3rem;

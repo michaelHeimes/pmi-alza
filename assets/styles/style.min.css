@@ -11491,7 +11491,7 @@ body.archive .entry-content .post-footer-nav li.va-wrap a:hover svg path {
   margin: 39px 0;
 }
 @media print, screen and (min-width: 56.25em) {
-  .careers-block .careers-block-job-grid .careers-block-job {
+  .careers-block .careers-block-job-grid .careers-block-job:not(.no-jobs) {
     max-width: 420px;
   }
 }

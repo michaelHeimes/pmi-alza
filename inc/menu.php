@@ -4,7 +4,6 @@ register_nav_menus(
 	array(
 		'main-nav'		=> __( 'The Main Menu', 'trailhead' ),		// Main nav in header
 		'offcanvas-nav'	=> __( 'The Off-Canvas Menu', 'trailhead' ),	// Off-Canvas nav
-		'social-links'	=> __( 'Social Links', 'trailhead' ),		// Social Nav
 	)
 );
 
@@ -66,18 +65,6 @@ function trailhead_footer_links() {
 	));
 } /* End Footer Menu */
 
-// The Social Links Menu
-function trailhead_social_links() {
-	wp_nav_menu(array(
-		'container'			=> 'false',				// Remove nav container
-		'menu_id'			=> 'social-links',		// Adding custom nav id
-		'menu_class'		=> 'menu',				// Adding custom nav class
-		'theme_location'	=> 'social-links',		// Where it's located in the theme
-		'depth'				=> 0,					// Limit the depth of the nav
-		'fallback_cb'		=> ''					// Fallback function
-	));
-} /* End Social Links Menu */
-
 // Header Fallback Menu
 function trailhead_main_nav_fallback() {
 	wp_page_menu( array(
@@ -104,40 +91,3 @@ function required_active_nav_class( $classes, $item ) {
 	return $classes;
 }
 add_filter( 'nav_menu_css_class', 'required_active_nav_class', 10, 2 );
-
-
-// Add ACF Fields to Main Nav
-
-	function my_wp_nav_menu_objects( $items, $args ) {
-		
-		// var_dump($args);
-		
-		if ( $args->theme_location == 'social-links') {
-			
-			// loop
-			foreach( $items as &$item ) {
-				
-				// vars
-				$icon = get_field('icon', $item);
-				$size = 'full';						
-				// append icon
-				if( $icon ) {
-					
-					$item->title = '<span class="icon" aria-hidden="true"><img class="style-svg" src="' . $icon['url'] . '" alt="' . $icon['alt'] . '"></span><span class="show-for-sr"' . $item->title . '</span>';
-					
-				}
-				
-			}
-			
-			// return
-			return $items;		
-
-		} else {			
-			// loop
-			foreach( $items as &$item ) {}
-			return $items;	
-		}
-		
-	}
-	
-add_filter('wp_nav_menu_objects', 'my_wp_nav_menu_objects', 10, 2);
