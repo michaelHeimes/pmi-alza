@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.1.19' );
+	define( '_S_VERSION', '1.1.23' );
 }
 
 /**
@@ -275,3 +275,10 @@ require_once(get_template_directory().'/inc/breadcrumbs.php');
 
 // Gutenberg Block Customizations
 require_once(get_template_directory().'/inc/gutenberg.php');
+
+// PFD FILTEYPE ON GRAVITY
+function my_theme_custom_upload_mimes( $existing_mimes ) {
+    $existing_mimes['pdf'] = 'application/pdf';
+    return $existing_mimes;
+}
+add_filter( 'upload_mimes', 'my_theme_custom_upload_mimes');

@@ -6,7 +6,7 @@ figure.wp-block-image,
 .wp-block-image a {
 	display: block !important;
 }
-[class^="wp-block-"]:not(.wp-block-image):not(.wp-block-column):not(.wp-block-heading),
+[class^="wp-block-"]:not(.wp-block-image):not(.wp-block-column):not(.wp-block-heading):not(.wp-block-list),
 .module.block,
 blockquote {
 	margin-top: rem-calc(30);
@@ -135,11 +135,17 @@ body.archive {
 		ol,
 		.button-group {
 			line-height: 2;
-			margin-top: rem-calc(25);
-			margin-bottom: rem-calc(0);
-			@include breakpoint(medium) {
-				margin-top: rem-calc(35);
-				margin-bottom: rem-calc(0);
+			margin-top: rem-calc(24);
+			margin-bottom: rem-calc(30);
+		}
+		ul,
+		ol {
+			&:not(.tabs):not(.accordion):not(.nav-links):not(.menu) {
+				padding-left: 1rem;
+				margin-bottom: rem-calc(54);
+			}
+			li:not(.accordion-item):not(.tabs-title) {
+				margin-bottom: 1.4rem;
 			}
 		}
 		.wp-block-columns ul.wp-block-list {
@@ -247,21 +253,6 @@ body.archive {
 				width: 100%;
 				text-align: center;
 				margin: .5em auto 1em;
-			}
-		}
-		ul,
-		ol {
-			&:not(.tabs):not(.nav-links):not(.menu) {
-				margin-bottom: 2.5rem;
-				@include breakpoint(tablet) {
-					margin-bottom: 3rem;
-				}
-			}
-			&:not(.tabs):not(.accordion):not(.nav-links):not(.menu) {
-				padding-left: 1rem;
-			}
-			li:not(.accordion-item):not(.tabs-title) {
-				margin-bottom: 1.4rem;
 			}
 		}
 	}
