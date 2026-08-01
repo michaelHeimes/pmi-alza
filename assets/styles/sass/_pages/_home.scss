@@ -91,12 +91,79 @@
 		h2 {
 			margin-bottom: 2em;
 		}
+		.link-wrap {
+			padding-top: clamp(3.5rem, 3.119rem + 1.905vw, 5rem);
+			a {
+				margin-bottom: 0;
+			}
+		}
 		hr {
 			margin-top: 6.869rem;
 			margin-top: clamp(6.869rem, 6.121rem + 3.738vw, 9.813rem);
 			@include breakpoint(medium) {
 				margin-top: 9.813rem;
 				margin-top: clamp(6.869rem, 6.121rem + 3.738vw, 9.813rem);
+			}
+		}
+	}
+	.cta-cards {
+		.cards-wrap.grid-x {
+			gap: 30px;
+			flex-wrap: wrap;
+			padding: clamp(3.5rem, 3.119rem + 1.905vw, 5rem) 0;
+			max-width: 1356px;
+			margin: auto;
+			@include breakpoint(xlarge) {
+				gap: $mediumGutter 4%;
+			}
+			@include breakpoint(xxlarge) {
+				gap: $mediumGutter 8%;
+			}
+			.cta-card {
+				width: 100%;
+				border: 1px solid $color-mint;
+				border-radius: 10px;
+				overflow: hidden;
+				padding: 11.465% 20px 14px;
+				min-height: 25.367vw;
+				filter: drop-shadow(0px 0px 0px $color-mint);
+				transition: all .3s ease;
+				&:hover {
+					filter: drop-shadow(0px 0px 35px $color-mint);
+				}
+				@include breakpoint(medium) {
+					width: calc(50% - 15px);
+					padding: 11.465% 4% 14px;
+				}
+				@include breakpoint(xlarge) {
+					width: 48%;
+					padding: 11.465% 4% 14px;
+				}
+				@include breakpoint(xxlarge) {
+					width: 46%;
+					padding: 11.465% 8% 14px;
+				}
+				h2 {
+					font-weight: 600;
+					font-size: clamp(1.75rem, 1.56rem + 0.952vw, 2.5rem);
+				}
+				img {
+					z-index: -1;
+				}
+				.link-wrap {
+					padding-top: 1rem;
+				}
+				a.button {
+					font-size: 1rem;
+					&:after {
+						content: '';
+						position: absolute;
+						top: 0;
+						left: 0;
+						height: 100%;
+						width: 100%;	
+					}
+				}
 			}
 		}
 	}

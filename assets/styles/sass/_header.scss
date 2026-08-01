@@ -3,15 +3,30 @@ header.site-header {
 	z-index: 5555;
 	box-shadow: 0px 12px 6px 0px rgba(0,0,0,0.76);
 	transition: transform .5s ease;
-	padding: 2rem 0;
 	background-color: $color-charcoal;
-	@include breakpoint(xlarge) {
-		padding: rem-calc(40) 0;
+	.top-bar-alert {
+		background-color: $color-charcoal;
+		color: $color-body-white;
+		padding-top: .6rem;
+		padding-bottom: .6rem;
+		p {
+			margin: 0;
+			line-height: 1.35;
+		}
+		a {
+			color: $color-mint;
+		}
 	}
-	@include breakpoint(large) {
-		.top-bar-wrap {
+	.top-bar-wrap {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		@include breakpoint(large) {
 			padding-left: 3rem;
 			padding-right: 3rem;
+		}
+		@include breakpoint(xlarge) {
+			padding-top: rem-calc(40);
+			padding-bottom: rem-calc(40);
 		}
 	}
 	#top-bar-menu {

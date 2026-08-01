@@ -14,6 +14,10 @@ $fields = get_fields();
 $agd_background_image = $fields['agd_background_image'] ?? null;
 $agd_title = $fields['agd_title'] ?? null;
 $agd_icon_text_rows = $fields['agd_icon_text_rows'] ?? null;
+$agd_button_link = $fields['agd_button_link'] ?? null;
+
+// CTA Cards
+$cta_cards = $fields['cta_cards'] ?? null;
 
 // Group Slider
 $group_slider_logo = $fields['group_slider_logo'] ?? null;
@@ -73,11 +77,61 @@ $group_companies_slides = $fields['group_companies_slides'] ?? null;
 												<?php endforeach;?>
 											</div>
 										<?php endif;?>
+										<?php if($agd_button_link):
+											$link = $agd_button_link;
+											$link_url = $link['url'];
+											$link_title = $link['title'];
+											$link_target = $link['target'] ? $link['target'] : '_self';	
+										?>
+											<div class="link-wrap">
+												<a class="button border" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+											</div>
+										<?php endif;?>
 									</div>
 								</div>
 							</div>
 							<hr class="gradient relative">
 						</section>
+						<?php endif;?>
+						
+						<?php if( !empty($cta_cards) ):?>
+						<div class="cta-cards">
+							<div class="grid-container">
+								<div class="grid-x grid-padding-x align-center">
+									<div class="cell small-12 xxlarge-11">
+										<div class="cards-wrap grid-x">
+											<?php foreach($cta_cards as $cta_card):
+												$background_image = $cta_card['background_image'] ?? null;	
+												$text = $cta_card['text'] ?? null;	
+												$button_link = $cta_card['button_link'] ?? null;	
+											?>
+												<div class="cta-card has-object-fit grid-x align-bottom">
+													<?=wp_get_attachment_image( $background_image['id'], 'large' );?>
+													<div>
+														<?php if($text):?>
+															<h2 class="text-center">
+																<?=wp_kses_post( $text );?>
+															</h2>
+														<?php endif;?>
+														<?php if($button_link):
+															$link = $button_link;
+															$link_url = $link['url'];
+															$link_title = $link['title'];
+															$link_target = $link['target'] ? $link['target'] : '_self';	
+														?>
+															<div class="link-wrap text-center">
+																<a class="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+															</div>
+														<?php endif;?>
+													</div>
+												</div>
+											<?php endforeach;?>
+										</div>
+									</div>
+								</div>
+							</div>
+							<hr class="gradient relative">
+						</div>
 						<?php endif;?>
 						
 						<?php if( !empty( $group_slider_logo ) || !empty( $group_companies_slides ) ):?>
