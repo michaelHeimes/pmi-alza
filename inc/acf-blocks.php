@@ -88,6 +88,19 @@ function register_acf_block_types() {
                 'className'         => true,
             ),
         ));
+        
+        acf_register_block_type(array(
+            'name'              => 'locations_block',
+            'title'             => __('Locations Block'),
+            'description'       => __('Locations Block'),
+            'render_template'   => 'template-parts/blocks/locations-block.php',
+            'category'          => 'formatting',
+            'supports'          => array(
+                'anchor'            => true,
+                'customClassName'   => true,
+                'className'         => true,
+            ),
+        ));
  
     }
         

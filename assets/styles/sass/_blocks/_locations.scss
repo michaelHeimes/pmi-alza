@@ -1,0 +1,52 @@
+.careers-block {
+	.tabs,
+	.tabs-content,
+	ul.tabs li a {
+		border-color: $color-mint !important;
+	}
+	ul.tabs li a[aria-selected="true"] {
+		color: $white;
+	}
+	.tabs-content {
+		padding: 40px 30px 30px;
+		p {
+			font-size: rem-calc(26);
+			margin-bottom: 1rem;
+		}
+	}
+	.accordion-content {
+		padding: 30px 24px 30px;
+		.directions-wrap {
+			padding-bottom: 10px;
+		}
+		p {
+			font-size: rem-calc(18);
+			margin-bottom: 1rem;
+		}
+	}
+	.link-wrap {
+		margin-top: 3rem;
+		a {
+			column-gap: 1rem;
+			svg path {
+				transition: all .25s ease;
+			}
+			&:hover {
+				svg path {
+					fill: $white;
+				}
+			}
+		}
+	}
+	.directions-wrap {
+		
+	}
+	.panel-gallery {
+		gap: 14px;
+		> figure {
+			width: calc(50% - 7px);
+			margin: 0;
+			aspect-ratio: initial;
+		}
+	}
+}

@@ -6,7 +6,7 @@ figure.wp-block-image,
 .wp-block-image a {
 	display: block !important;
 }
-[class^="wp-block-"]:not(.wp-block-image):not(.wp-block-column):not(.wp-block-heading):not(.wp-block-list),
+[class^="wp-block-"]:not(.wp-block-image):not(.wp-block-column):not(.wp-block-heading):not(.wp-block-list):not(.panel-gallery),
 .module.block,
 blockquote {
 	margin-top: rem-calc(30);
@@ -270,15 +270,15 @@ body.single-post .entry-content {
 	padding-bottom: 0;
 }
 
-.wp-block-gallery.has-nested-images {
+.wp-block-gallery.has-nested-images:not(.panel-gallery) {
 	--wp--style--gallery-gap-default: 24px !important;
 	justify-content: center;
 	@include breakpoint(tablet) {
 		--wp--style--gallery-gap-default: 38px !important;
 	}
 	> *,
-	figure.wp-block-image:not(#individual-image),
-	.wp-block-image:not(#individual-image) {
+	figure.wp-block-image:not(#individual-image):not(.not-square),
+	.wp-block-image:not(#individual-image):not(.not-square) {
 		aspect-ratio: 1 / 1;
 		flex-grow: 0;
 

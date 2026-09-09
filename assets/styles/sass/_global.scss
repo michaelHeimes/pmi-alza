@@ -126,6 +126,9 @@ button,
 			}
 		}
 	}
+	&.chevron-link {
+		padding-right: 1.65rem;
+	}
 }
 
 .swiper-pagination:not(.testimonial):not(.image-slider) {

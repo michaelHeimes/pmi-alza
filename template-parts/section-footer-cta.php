@@ -15,7 +15,7 @@ $button_links = get_field('button_links', 'option') ?? null;
 	}?>
 	<div class="grid-container relative">
 		<div class="grid-x grid-padding-x align-center">
-			<div class="cell small-12 large-8 xlarge-6">
+			<div class="cell small-12">
 				<?php if( !empty( $footer_cta_title ) ):?>
 						<h2 class="text-center"><?=$footer_cta_title;?></h2>
 				<?php endif;?>

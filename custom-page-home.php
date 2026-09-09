@@ -109,7 +109,7 @@ $group_companies_slides = $fields['group_companies_slides'] ?? null;
 													<?=wp_get_attachment_image( $background_image['id'], 'large' );?>
 													<div>
 														<?php if($text):?>
-															<h2 class="text-center">
+															<h2 class="text-center font-header">
 																<?=wp_kses_post( $text );?>
 															</h2>
 														<?php endif;?>
@@ -120,7 +120,7 @@ $group_companies_slides = $fields['group_companies_slides'] ?? null;
 															$link_target = $link['target'] ? $link['target'] : '_self';	
 														?>
 															<div class="link-wrap text-center">
-																<a class="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+																<a class="button border" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 															</div>
 														<?php endif;?>
 													</div>

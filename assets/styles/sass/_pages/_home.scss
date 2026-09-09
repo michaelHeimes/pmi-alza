@@ -133,15 +133,15 @@
 				}
 				@include breakpoint(medium) {
 					width: calc(50% - 15px);
-					padding: 11.465% 4% 14px;
+					padding: 11.465% 3% 14px;
 				}
 				@include breakpoint(xlarge) {
 					width: 48%;
-					padding: 11.465% 4% 14px;
+					padding: 11.465% 2% 14px;
 				}
 				@include breakpoint(xxlarge) {
 					width: 46%;
-					padding: 11.465% 8% 14px;
+					padding: 11.465% 2% 14px;
 				}
 				h2 {
 					font-weight: 600;
@@ -151,7 +151,7 @@
 					z-index: -1;
 				}
 				.link-wrap {
-					padding-top: 1rem;
+					padding-top: 1.8rem;
 				}
 				a.button {
 					font-size: 1rem;
